@@ -1,0 +1,48 @@
+
+body {background-image:url('https://pixabay.com/images/id-2695569/');
+        height: 100%;
+    font-family: 'Orbitron', sans-serif;
+    font-size:20px;
+}
+
+/*Nav/header styling*/
+.header {
+        position:fixed;
+}
+
+.sub-heading{
+                position:fixed;
+}
+
+/*Colours for different sections*/
+#yellow {color: #FFF70B};
+#blue {color: #19F0FF };
+#red {color: #F92323};
+#green {color: #23F955};
+
+/*Start button to begin the game*/
+.button {color: #3efa6a;
+        border-radius: 2px;}
+        
+ /*Styling for modul button*/     
+.how-to {color: #0b0b0d;
+         background-color:  #daddeb;
+        font-weight: 600;
+        border-radius: 25px;
+        text-shadow: 2px 2px 8px #0b0b0d;
+        margin:30px;
+        text-align:center;
+}
+
+
+.center {text-align: center}
+
+/*Footers*/
+.footer {
+        position:fixed;
+         left: 0;
+         bottom: 0;
+         width: 100%;
+         text-align: center;
+         font-size:10px;
+}
