@@ -1,52 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css" type="text/css" />
     <link href="/YOUR_PATH/favicon.ico" rel="icon" type="image/x-icon" />
-   <link rel="stylesheet" href=" https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href=" https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Shojumaru&effect=3d rel='stylesheet' type='text/css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <title>Simon Game</title>
 </head>
+
 <body>
     <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column container-fluid">
-     <row><div class="col-12 header">Simon Game</div></row>
-     <row><div class="col-12 sub-heading">Test your memory</div></row>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column container-fluid">
+            <row>
+                <div class="col-12 header">Simon Game</div>
+            </row>
+            <row>
+                <div class="col-12 sub-heading">Test your memory</div>
+            </row>
     </header>
     </nav>
-    <div id="outer-circle">
-        <div id="yellow"></div>
-        <div id="red"></div>
-        <div id="blue"></div>
-        <div id="green"></div>
+    <div class="container-fluid flex-column">
+<div class="row">
+    <div class="col center">
+        <button class="how-to" id="how-to">How to play?</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div id="outer-circle">
+
+            <div id="yellow"></div>
+            <div id="red"></div>
+            <div id="blue"></div>
+            <div id="green"></div>
+
+<!--Used https://www.w3schools.com/graphics/svg_intro.asp and https://stackoverflow.com/questions/53946107/svg-how-to-center-a-rectangle-->
+<div class="row">
+    <div class="col center">
         <div id="inner-circle">
-            <button class="button" id="start"></button>
-            <label class="switch">
+            <!--help from https://github.com/lovell/sharp/issues/1201-->
+            <svg width="250" height="300" viewBox="0 0 150 100">
+                <circle class="circle" cy="90" cx="75" r="40" stroke="black" stroke-width="3" fill="white"/>
+                  
+                 <button class="button" id="start"></button>
+                   <label class="switch">
                      <input id="strict" type="checkbox">
                       <span class="slider round"></span>
-            </label>   
-            <div class="score"></div>
+                    </label>  
+                <div class="score"></div>
+                  </svg>
         </div>
-        
-        <div class="center">
-            <button class="how-to" id="how-to">How to play?</button>
-        
-        </div>
-        
-        
     </div>
-    
-    
-    <footer class="footer flex-column">
-       <p class="col"> Copyright </p>
-    </footer>
-    
+</div>
+</div>
+
+<footer class="footer flex-column">
+    <p class="col"> Copyright </p>
+</footer>
+
     <script type="text/javascript" src="js.make.js"></script>
-    </body>
+</body>
+
 </html>
