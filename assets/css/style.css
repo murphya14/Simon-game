@@ -3,6 +3,7 @@ body {background-image:url('https://pixabay.com/images/id-2695569/');
         height: 100%;
     font-family: 'Orbitron', sans-serif;
     font-size:20px;
+    text-align: center;
 }
 
 /*Nav/header styling*/
@@ -20,25 +21,9 @@ body {background-image:url('https://pixabay.com/images/id-2695569/');
 #red {color: #F92323};
 #green {color: #23F955};
 
-/*SVG Shapes*/
+/*Canvas Shapes*/
 
-#topleft {
-  position: absolute;
-  height: 250px;
-  width: 250px;
-  border-radius: 250px 0 0 0;
-  -moz-border-radius: 250px 0 0 0;
-  -webkit-border-radius: 250px 0 0 0;
-  background: darkgreen;
-  top: 50%;
-  left: 50%;
-  margin: -250px 0px 0px -250px;
-  border-style: solid;
-  border-width: 5px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-}
+#circle {  z-index: 1000!important;}
 
 /*Start button to begin the game*/
 .button {color: #3efa6a;
