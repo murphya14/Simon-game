@@ -3,8 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    	<meta charset="UTF-8">
+	
+<meta name="description" content="Simon Memory Game">
+	<meta name="keywords" content="Simon Memory, Memory Game, Game, Puzzle, Fun, Challenge">
+	<meta name="author" content="Aisling Murphy">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
     <link href="/YOUR_PATH/favicon.ico" rel="icon" type="image/x-icon" />
     <link rel="stylesheet" href=" https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
@@ -14,26 +19,21 @@
   <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAD/ZgAAJgD/AODTygAA//IADQUAABn/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQEBAQEBAQEBAQEBAQEBAQDAwMDAwMEBAAAAAAAAAQEAwMDAwMDBAQAAAAAAAAEBAMDAwMDAwQEAAAAAAAABAQDAwMDAwICAgIAAAAAAAQEAwMDAwICAgICAgAAAAAEBAMDAwICAgICAgICAAAABAQEBAQCAgICAgICAgQEBAQEBAQEBAQEBAQEBAQEBAQEBAUFBQQEBAQEBAQEAQEBBAQFBQUFBAQEBAQEAQEBAQQEBQUFBQUEBAQEAQEBAQEEBAUFBQUFBQQEAQEBAQEBBAQFBQUFBQUEBAEBAQEBAQQEBQUFBQUFBAQBAQEBAQEEBAQEBAQEBAQEBAQEBAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" rel="icon" type="image/x-icon" />
     <title>Simon Game</title>
     
-        
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
 
-<script src="js/canvas.js"></script>
+
     
 </head>
 
-<body onload="draw();">
+<body>
 
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column container-fluid">
-            <row>
+            <div="row">
                 <div class="col-12 header">Simon Game</div>
-            </row>
-            <row>
+            </div>
+            <div class="row">
                 <div class="col-12 sub-heading">Test your memory</div>
-            </row>
+            </div>
     </header>
     </nav>
     <div class="container-fluid flex-column">
@@ -46,7 +46,7 @@
  
   
 <div class="row">
-    <div class="col">
+    <div class="col arcs">
             <div id="yellow"></div>
             <div id="red"></div>
             <div id="blue"></div>
@@ -60,31 +60,10 @@
             <svg width="500" height="500">
  <!--- Three circles within each other--->              
                <circle cx="250" cy="250" r="175" stroke="#444444" stroke-width="130" fill="#444444" />
-               
+                <rect x="60" y="50" width="350" height="350" fill="pink" stroke-width:"3" />
                 <circle class="circle" cy="250" cx="250" r="100" stroke="black" stroke-width="3" fill="white"/>
-                
+               
                  <circle cx="250" cy="250" r="80" fill="#444444" />
- <path 
-	d="M 225 150 A 75 75 0 0 1 112.5 0"
-	stroke="blue"
-	stroke-width="20"
-	fill="none"
-    />
-
-    <path 
-	d="M 225 150 A 75 75 0 0 0 112.5 85.05"
-	stroke="yellow"
-	stroke-width="20"
-	fill="none"
-    />
-    
-        <path 
-	d="M 225 150 A 75 75 0 0 0 112.5 85.05"
-	stroke="yellow"
-	stroke-width="20"
-	fill="none"
-    />
-
 
   
    <text x="180" y="210" fill="black" font-size="3.5rem">Simon</text>
@@ -109,7 +88,12 @@
 <footer class="footer flex-column">
     <p class="col"> Copyright </p>
 </footer>
-    <script type="text/javascript" src="assets/js/make.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="assets/js/make.js"></script>
 </body>
 
 </html>

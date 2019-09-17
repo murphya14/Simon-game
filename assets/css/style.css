@@ -21,9 +21,9 @@ body {background-image:url('https://pixabay.com/images/id-2695569/');
 #red {color: #F92323};
 #green {color: #23F955};
 
-/*Canvas Shapes*/
+/*SVG Shapes*/
 
-#circle {  z-index: 1000!important;}
+.square {text-align: centre}
 
 /*Start button to begin the game*/
 .button {color: #3efa6a;
