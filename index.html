@@ -11,8 +11,14 @@
     <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Shojumaru&effect=3d rel='stylesheet' type='text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="js/make.js" type="text/css" />
     <title>Simon Game</title>
+    
+        
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
 </head>
 
 <body>
@@ -27,45 +33,57 @@
     </header>
     </nav>
     <div class="container-fluid flex-column">
-<div class="row">
-    <div class="col center">
-        <button class="how-to" id="how-to">How to play?</button>
-    </div>
-</div>
+        <div class="row">
+            <div class="col center">
+                <button class="how-to" id="how-to">How to play?</button>
+            </div>
+        </div>
+
 <div class="row">
     <div class="col">
-        <div id="outer-circle">
-
             <div id="yellow"></div>
             <div id="red"></div>
             <div id="blue"></div>
             <div id="green"></div>
 
 <!--Used https://www.w3schools.com/graphics/svg_intro.asp and https://stackoverflow.com/questions/53946107/svg-how-to-center-a-rectangle-->
-<div class="row">
-    <div class="col center">
-        <div id="inner-circle">
-            <!--help from https://github.com/lovell/sharp/issues/1201-->
-            <svg width="250" height="300" viewBox="0 0 150 100">
+
+
+<!--help from https://github.com/lovell/sharp/issues/1201-->
+            <svg width="500" height="500">
+               
+               <circle cx="250" cy="250" r="175" stroke="#444444" stroke-width="130" fill="#444444" />
+               
                 <circle class="circle" cy="90" cx="75" r="40" stroke="black" stroke-width="3" fill="white"/>
-                  
-                 <button class="button" id="start"></button>
+                
+                   
+    <!--  Arc Buttons  -->
+  <path id="1" fill="none" stroke-width="100" stroke="#bb0000" />
+  <path id="2" fill="none" stroke-width="100" stroke="#0000b0" />
+  <path id="3" fill="none" stroke-width="100" stroke="#bbbb00" />
+  <path id="4" fill="none" stroke-width="100" stroke="#008000" />
+
+ <!---Helped using https://developer.mozilla.org/en-US/docs/Web/SVG/Element/foreignObject-->
+                   <button class="button" id="start"></button>
                    <label class="switch">
                      <input id="strict" type="checkbox">
                       <span class="slider round"></span>
                     </label>  
                 <div class="score"></div>
-                  </svg>
-        </div>
-    </div>
-</div>
-</div>
+              
+               
+            </svg> 
+
+</div></div>
+
+
+
 
 <footer class="footer flex-column">
     <p class="col"> Copyright </p>
 </footer>
 
-    <script type="text/javascript" src="js.make.js"></script>
+    <script type="text/javascript" src="js/make.js"></script>
 </body>
 
 </html>
