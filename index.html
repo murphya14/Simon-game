@@ -21,8 +21,6 @@
     <title>Simon Game</title>
 
 
-
-
 </head>
 
 <body>
@@ -37,7 +35,7 @@
     </header>
     </nav>
 
-    <div class="container-fluid flex-column">
+  <div class="wrapper">  <div class="container flex-column">
 
         <div class="row">
             <div class="col center">
@@ -72,21 +70,24 @@
                 </audio>
                     </div>
 
-                    <div class="circle"></div>
+                    <div class="circle">
+                        
+                    <button class="center start-button" id="start">Start</button>
+                    
+                    <div id="slider">Slider</div>
+     
+                    <div id="score">Score</div>
+                    
+                    </div>
+                    
 
-                    <button class="button" id="start"></button>
-                    <label class="switch">
-                     <input id="strict" type="checkbox">
-                      <span class="slider round"></span>
-                    </label>
-                    <div class="score"></div>
 
                 </div>
 
             </div>
 
         </div>
-
+ </div>
         <footer class="footer flex-column">
             <p class="col"> Copyright </p>
         </footer>

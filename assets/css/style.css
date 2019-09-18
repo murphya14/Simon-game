@@ -9,6 +9,13 @@ body {background-image:url('https://pixabay.com/images/id-2695569/');
   margin: auto;
  }
  
+ 
+ .wrapper{
+  position: relative;
+  width:640px;
+  margin:0 auto;
+  
+}
 
 /*Nav/header styling*/
 .header {
@@ -25,7 +32,7 @@ body {background-image:url('https://pixabay.com/images/id-2695569/');
 .circle 
 {
   position: absolute;
-  top: 195px;
+  top:195px;
   left: 195px;
   width: 250px;
   height: 250px;
@@ -36,7 +43,7 @@ body {background-image:url('https://pixabay.com/images/id-2695569/');
   
   .background-circle {
   position: absolute;
-  top:170px;
+  top:0px;
   width:640px;
   height: 640px;
   z-index:0;
@@ -85,7 +92,31 @@ body {background-image:url('https://pixabay.com/images/id-2695569/');
   
 }
 
+/*Buttons*/
+.start-button{
+    width: 60px;
+    height: 60px;
+    background-color: green;
+    border-radius: 310px;
+    text-align: center;
+    font-weight: 700;
+    margin-left: 90px;
+   margin-top: 15px;
+   text-transform: uppercase;
+   border: 20px;
+   border-color: #0B7842;
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+   color: white;
+}
 
+#slider, #score {color: white;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    font-weight: 700;
+    margin-left: 90px;
+   margin-top: 5px;
+}
 
 /*Start button to begin the game*/
 .button {color: #3efa6a;
