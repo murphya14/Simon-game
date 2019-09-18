@@ -5,10 +5,10 @@ body {background-image:url('https://pixabay.com/images/id-2695569/');
     font-size:20px;
     text-align: center;
      position: relative;
-  width:640px;
-  margin:0 auto;
-}
-}
+  width:100%;
+  margin: auto;
+ }
+ 
 
 /*Nav/header styling*/
 .header {
@@ -22,14 +22,19 @@ body {background-image:url('https://pixabay.com/images/id-2695569/');
 
 /*Shapes*/
 
-circle 
-{position: absolute;
+.circle 
+{
+  position: absolute;
   top: 195px;
   left: 195px;
   width: 250px;
-  height: 250px;}
+  height: 250px;
+  background: #000;
+  border-radius: 125px;
+  z-index: 10;
+}
   
-  .arcs {
+  .background-circle {
   position: absolute;
   top:170px;
   width:640px;
@@ -38,7 +43,7 @@ circle
   background-color: beige;
   border-radius: 310px;
 }
-  
+ 
   
 .pad {
     
@@ -51,6 +56,7 @@ circle
   filter: alpha(opacity=60);  
   opacity: 0.6; /*Will be linked in JS to change*/
 }
+
 
 
 .one {
