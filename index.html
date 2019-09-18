@@ -25,7 +25,6 @@
 </head>
 
 <body>
-
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column container-fluid">
             <div="row">
@@ -43,30 +42,45 @@
             </div>
         </div>
     
- 
+ <!---Help from https://www.danpurdy.co.uk/tutorial/simon-says-game-in-jquery-tutorial/-->
   
 <div class="row">
-    <div class="col arcs">
-            <div id="yellow"></div>
-            <div id="red"></div>
-            <div id="blue"></div>
-            <div id="green"></div>
+   <div class="arcs"> 
+            <div class="pad one" id="1">
+                <audio preload="auto" class="sound1" data-pad="1">
+                  <source src="sounds/mp3/sounds_01.mp3" type="audio/mpeg"/>
+               </audio>
+            </div>
+            <div class="pad two" id="2">
+                 <audio preload="auto" class="sound2" data-pad="2">
+          <source src="sounds/mp3/sounds_02.mp3" type="audio/mpeg"/>
+                 </audio>
+            </div>
+            <div class="pad three" id="3">
+                <audio preload="auto" class="sound3" data-pad="3">
+                <source src="sounds/mp3/sounds_03.mp3" type="audio/mpeg"/>
+
+                </audio>
+            </div>
+            <div class="pad four" id="4">
+                 <audio preload="auto" class="sound4" data-pad="4">
+                  <source src="sounds/mp3/sounds_04.mp3" type="audio/mpeg"/>
+                </audio>
+            </div>
+</div>
 
 <!--Used https://www.w3schools.com/graphics/svg_intro.asp and https://stackoverflow.com/questions/53946107/svg-how-to-center-a-rectangle-->
 
 
 <!--help from https://github.com/lovell/sharp/issues/1201-->
-            <div class="center">
-            <svg width="500" height="500">
+<div class="center">
+    <svg width="500" height="500">
  <!--- Three circles within each other--->              
-               <circle cx="250" cy="250" r="175" stroke="#444444" stroke-width="130" fill="#444444" />
-                <rect x="60" y="50" width="350" height="350" fill="pink" stroke-width:"3" />
-                <circle class="circle" cy="250" cx="250" r="100" stroke="black" stroke-width="3" fill="white"/>
+                <circle class="circle" cy="250" cx="250" r="100" stroke="black" z-index: "10"; stroke-width="3" fill="white"/>
                
-                 <circle cx="250" cy="250" r="80" fill="#444444" />
+                 <circle cx="250" cy="250" r="80" z-index: "10"; fill="#444444" />
 
-  
-   <text x="180" y="210" fill="black" font-size="3.5rem">Simon</text>
+               <text x="180" y="210" fill="black" font-size="3.5rem">Simon</text>
 
  <!---Helped using https://developer.mozilla.org/en-US/docs/Web/SVG/Element/foreignObject-->
                    <button class="button" id="start"></button>
@@ -78,11 +92,9 @@
 
   
                
-            </svg> 
+            </svg>
 </div>
-
-
-
+            
 
 
 <footer class="footer flex-column">

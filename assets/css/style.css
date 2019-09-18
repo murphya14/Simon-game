@@ -4,6 +4,10 @@ body {background-image:url('https://pixabay.com/images/id-2695569/');
     font-family: 'Orbitron', sans-serif;
     font-size:20px;
     text-align: center;
+     position: relative;
+  width:640px;
+  margin:0 auto;
+}
 }
 
 /*Nav/header styling*/
@@ -15,15 +19,67 @@ body {background-image:url('https://pixabay.com/images/id-2695569/');
                 position:fixed;
 }
 
-/*Colours for different sections*/
-#yellow {color: #FFF70B};
-#blue {color: #19F0FF };
-#red {color: #F92323};
-#green {color: #23F955};
 
-/*SVG Shapes*/
+/*Shapes*/
 
-.square {text-align: centre}
+circle 
+{position: absolute;
+  top: 195px;
+  left: 195px;
+  width: 250px;
+  height: 250px;}
+  
+  .arcs {
+  position: absolute;
+  top:170px;
+  width:640px;
+  height: 640px;
+  z-index:0;
+  background-color: beige;
+  border-radius: 310px;
+}
+  
+  
+.pad {
+    
+  width: 300px;
+  height: 300px;
+  float: left;
+  z-index: 1;
+  margin: 10px;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  filter: alpha(opacity=60);  
+  opacity: 0.6; /*Will be linked in JS to change*/
+}
+
+
+.one {
+  border-top-left-radius: 300px;
+  background-color:  #FFF70B;
+}
+
+.two {
+  float: left;
+  border-top-right-radius: 300px;
+  background-color: #19F0FF;
+  clear: right;
+}
+
+.three {
+  float: left;
+  border-bottom-left-radius: 300px;
+  background-color: #F92323;
+  clear: left;
+}
+
+.four {
+  float: left;
+  border-bottom-right-radius: 300px;
+  background-color: #23F955;
+  
+}
+
+
 
 /*Start button to begin the game*/
 .button {color: #3efa6a;
@@ -46,7 +102,9 @@ body {background-image:url('https://pixabay.com/images/id-2695569/');
 }
 
 
-.center {text-align: center}
+.center {text-align: center;
+  ;
+}
 
 /*Footers*/
 .footer {
