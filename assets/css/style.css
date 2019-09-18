@@ -1,99 +1,146 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap');
 
-body {background-image:url('https://pixabay.com/images/id-2695569/');
-        height: 100%;
+
+body {
+background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
+/*background sourced from https://webgradients.com/*/
+    height: 100%;
     font-family: 'Orbitron', sans-serif;
-    font-size:20px;
+    font-size: 20px;
     text-align: center;
-     position: relative;
-  width:100%;
-  margin: auto;
- }
- 
- 
- .wrapper{
-  position: relative;
-  width:640px;
-  margin:0 auto;
-  
+    position: relative;
+    width: 100%;
+    margin: auto;
+}
+
+.wrapper {
+    position: relative;
+    width: 640px;
+    margin: 0 auto;
+
+}
+
+
+
+
+.center {
+    text-align: center;
+    ;
 }
 
 /*Nav/header styling*/
-.header {
-        position:fixed;
+
+.navbar {background-color: black;
+    color: white;
 }
 
-.sub-heading{
-                position:fixed;
+.header {
+    position: fixed;
+    font-size: 20px;
+    text-transform: uppercase;
+    
+    text-align: center;
+    
+}
+
+.sub-heading {
+    position: fixed;
+    font-size:15px;
+    text-align: center;
+    color: #ff0dbf;
 }
 
 
 /*Shapes*/
 
-.circle 
-{
-  position: absolute;
-  top:195px;
-  left: 195px;
-  width: 250px;
-  height: 250px;
-  background: #000;
-  border-radius: 125px;
-  z-index: 10;
+.circle {
+    position: absolute;
+    top: 195px;
+    left: 195px;
+    width: 250px;
+    height: 250px;
+    background: #000;
+    border-radius: 125px;
+    z-index: 10;
 }
-  
-  .background-circle {
-  position: absolute;
-  top:0px;
-  width:640px;
-  height: 640px;
-  z-index:0;
-  background-color: beige;
-  border-radius: 310px;
+
+.background-circle {
+    position: absolute;
+    top: 0px;
+    width: 640px;
+    height: 640px;
+    z-index: 0;
+    background-color: black;
+    border-radius: 310px;
 }
- 
-  
+
+
 .pad {
-    
-  width: 300px;
-  height: 300px;
-  float: left;
-  z-index: 1;
-  margin: 10px;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
-  filter: alpha(opacity=60);  
-  opacity: 0.6; /*Will be linked in JS to change*/
+
+    width: 300px;
+    height: 300px;
+    float: left;
+    z-index: 1;
+    margin: 10px;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+    filter: alpha(opacity=60);
+    opacity: 0.6;
+    /*Will be linked in JS to change*/
 }
 
 
 
 .one {
-  border-top-left-radius: 300px;
-  background-color:  #FFF70B;
+    border-top-left-radius: 300px;
+    background-color: #FFF70B;
 }
 
 .two {
-  float: left;
-  border-top-right-radius: 300px;
-  background-color: #19F0FF;
-  clear: right;
+    float: left;
+    border-top-right-radius: 300px;
+    background-color: #19F0FF;
+    clear: right;
 }
 
 .three {
-  float: left;
-  border-bottom-left-radius: 300px;
-  background-color: #F92323;
-  clear: left;
+    float: left;
+    border-bottom-left-radius: 300px;
+    background-color: #F92323;
+    clear: left;
 }
 
 .four {
-  float: left;
-  border-bottom-right-radius: 300px;
-  background-color: #23F955;
-  
+    float: left;
+    border-bottom-right-radius: 300px;
+    background-color: #23F955;
+
 }
 
 /*Buttons*/
-.start-button{
+
+/*Styling for modul button*/
+
+.how-to {
+    color: #0b0b0d;
+    border: 5px solid #ff0dbf;
+    background-color: #daddeb;
+    font-weight: 600;
+    border-radius: 25px;
+    
+    margin: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.how-to:hover {
+    background-color: #ff0dbf; 
+    color: gray;
+    font-weight: 700;
+}
+
+
+
+.start-button {
     width: 60px;
     height: 60px;
     background-color: green;
@@ -101,55 +148,49 @@ body {background-image:url('https://pixabay.com/images/id-2695569/');
     text-align: center;
     font-weight: 700;
     margin-left: 90px;
-   margin-top: 15px;
-   text-transform: uppercase;
-   border: 20px;
-   border-color: #0B7842;
-   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-   color: white;
+    margin-top: 15px;
+    text-transform: uppercase;
+    border: 20px;
+    border-color: #0B7842;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: white;
+    cursor: pointer
 }
 
-#slider, #score {color: white;
+.start-button:hover {
+    background-color: #49fb35
+}
+
+
+
+
+#slider,
+#score {
+    color: white;
     width: 60px;
     height: 60px;
     text-align: center;
     font-weight: 700;
     margin-left: 90px;
-   margin-top: 5px;
-}
-
-/*Start button to begin the game*/
-.button {color: #3efa6a;
-        border-radius: 2px;
-        z-index: 2;
-        border: none;
-        cursor: pointer;
-        height: 100px;
-        width: 100px;
-}
-        
- /*Styling for modul button*/     
-.how-to {color: #0b0b0d;
-         background-color:  #daddeb;
-        font-weight: 600;
-        border-radius: 25px;
-        text-shadow: 2px 2px 8px #0b0b0d;
-        margin:30px;
-        text-align:center;
+    margin-top: 5px;
 }
 
 
-.center {text-align: center;
-  ;
-}
 
 /*Footers*/
+
 .footer {
-        position:fixed;
-         left: 0;
-         bottom: 0;
-         width: 100%;
-         text-align: center;
-         font-size:10px;
-         
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+    margin:0;
+    color: white;
+    background-color: black;
+    height: 50px;
+    font-size: 20px;
+    font-weight: 600;
+
 }
