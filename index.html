@@ -35,13 +35,27 @@
     </header>
     </nav>
 
-  <div class="wrapper">  <div class="container flex-column">
+<div class="wrapper">
+    <div class="container flex-column">
 
         <div class="row">
             <div class="col center">
-                <button class="how-to" id="how-to">How to play?</button>
+                <div class="how-to popup-overlay">
+                    <!--Creates the popup content-->
+                    <div id="how-to-p" class="popup-content">
+                        <h2>How to Play</h2>
+                        <p> This is an example pop-up that you can make using jQuery. lorem ipsum keyboard shortcuts. Select how much text you want from the menu item in Edit->Text->Lorem Ipsum or in the right click menu in Lorem Ipsum. Press the shortcut
+                            key (Alt+Shift+L) to add Lorem Ipsum text. Keep pressing to add more.</p>
+                        <!--popup's close button-->
+                        <button class="close">Close</button>
+                    </div>
+                </div>
+                <!--Content shown when popup is not displayed-->
+
+                <button id="how-to" class="open how-to">How to play</button>
             </div>
         </div>
+    </div>
 
         <!---Help from https://www.danpurdy.co.uk/tutorial/simon-says-game-in-jquery-tutorial/-->
 

@@ -32,11 +32,12 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
 
 .navbar {background-color: black;
     color: white;
+    font-weight: 700;
 }
 
 .header {
     position: fixed;
-    font-size: 20px;
+    font-size: 25px;
     text-transform: uppercase;
     
     text-align: center;
@@ -45,7 +46,7 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
 
 .sub-heading {
     position: fixed;
-    font-size:15px;
+    font-size:20px;
     text-align: center;
     color: #ff0dbf;
 }
@@ -134,11 +135,55 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
 
 .how-to:hover {
     background-color: #ff0dbf; 
-    color: gray;
+    color: white;
     font-weight: 700;
 }
 
+#how-to-p {
+    Background-color: #ff0dbf;
+    border-radius: 2em 2em 2em 2em / 1em 1em 1em 1em;
+    color: black;
+    width: 100%;
 
+    text-align:center;
+}
+/*Pop up modaL*/
+
+.popup-overlay {
+  /*Hides pop-up when there is no "active" class*/
+  visibility: hidden;
+  position: absolute;
+  background: #ffffff;
+  border: 3px solid #666666;
+  width: 50%;
+  height: 50%;
+  left: 25%;
+}
+
+.popup-overlay.active {
+  /*displays pop-up when "active" class is present*/
+  visibility: visible;
+  text-align: center;
+  z-index: 10;
+}
+
+.popup-content {
+  /*Hides pop-up content when there is no "active" class */
+  visibility: hidden;
+}
+
+.popup-content.active {
+  /*Shows pop-up content when "active" class is present */
+  visibility: visible;
+   z-index: 10;
+   width:100%;
+}
+
+.close {color:white;
+    font-weight: 700;
+}
+
+.hide {display:none;}
 
 .start-button {
     width: 60px;
@@ -163,8 +208,6 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
 
 
 
-
-#slider,
 #score {
     color: white;
     width: 60px;
@@ -174,6 +217,14 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
     margin-left: 90px;
     margin-top: 5px;
 }
+
+#slider {    color: white;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    font-weight: 700;
+    margin-left: 90px;
+    margin-top: 20px;}
 
 
 
