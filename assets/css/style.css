@@ -179,6 +179,8 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
    width:100%;
 }
 
+.how-to-p, h2 {color: white;}
+
 .close {color:white;
     font-weight: 700;
 }
