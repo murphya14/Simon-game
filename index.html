@@ -90,9 +90,14 @@
                         
                     <button class="center start-button" id="start">Start</button>
                     
-                    <div id="slider">Slider</div>
-     
-                    <div id="score">Score</div>
+                 <!--- Aided by https://mdbootstrap.com/docs/jquery/forms/switch/--->
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" id="strict" class="custom-control-input" data-on="Ready" data-off="Not Ready" data-onstyle="success" data-offstyle="danger" id="customSwitches">
+                        <label class="custom-control-label" for="customSwitches">Strict</label>
+                    </div>
+                    </div>     
+                    
+                    <button class="btn" type="button" id="counter" onclick="counter()">Score</button>
                     
                     </div>
                     

@@ -18,3 +18,20 @@ $("#start").click(function(){
   
   
 })
+
+
+
+ /*COUNTER*/
+function counter (){
+    var currentVal = document.getElementById("counter").innerHTML;
+    var newVal = 0;
+    
+    if (currentVal<20){
+        newval = currentVal + 1;
+    }
+    
+    document.getElementById("counter").innerHTML = newVal;
+    
+    else {IMPORT THE WINNER IMAGE} 
+}
+
