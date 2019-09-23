@@ -5,17 +5,24 @@ let turn;
 let good;
 let compTurn;
 let intervalId;
-
+let Strict =false;
 let noise = true;
 let on = false;
 let win;
 
-const turnCounter = document.querySelector("#turn");
-const topLeft = document.querySelector("#topleft");
-const topRight = document.querySelector("#topright");
-const bottomLeft = document.querySelector("#bottomleft");
-const bottomRight = document.querySelector("#bottomright");
 
+let offNoise = new Audio('');
+let winNoise = new Audio('');
+let strictNoise = new Audio('');
+
+
+
+const turnCounter = document.querySelector("#turn");
+const topLeft = document.querySelector("#one");
+const topRight = document.querySelector("#two");
+const bottomLeft = document.querySelector("#three");
+const bottomRight = document.querySelector("#four");
+const strictButton = document.querySelector("#strict");
 const onButton = document.querySelector("#on");
 const startButton = document.querySelector("#start");
 
@@ -59,8 +66,7 @@ function counter (){
 
 
 /*Strict*/
-let strictButton = document.querySelector('#strictButton')
-let strict = false;
+
 strictButton.addEventListener('click', () => {
     if (strictButton.dataOn == true) {
         strict = true;
