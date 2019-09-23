@@ -1,7 +1,23 @@
-let audio1 = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3');
-audio1.play()
+let order = [];
+let playerOrder = [];
+let flash;
+let turn;
+let good;
+let compTurn;
+let intervalId;
 
+let noise = true;
+let on = false;
+let win;
 
+const turnCounter = document.querySelector("#turn");
+const topLeft = document.querySelector("#topleft");
+const topRight = document.querySelector("#topright");
+const bottomLeft = document.querySelector("#bottomleft");
+const bottomRight = document.querySelector("#bottomright");
+
+const onButton = document.querySelector("#on");
+const startButton = document.querySelector("#start");
 
 
 
@@ -23,7 +39,7 @@ $("#start").click(function(){
 
   $(".pad").css("opacity", "1");
   
-  document.getElementById("start").addEventListener("transitionend", myFunction);
+  document.getElementById("start").addEventListener("transitionend", $(".pad"));
 
 })
 
@@ -43,15 +59,14 @@ function counter (){
 
 
 /*Strict*/
-let strictButton = document.querySelector('#strict')
+let strictButton = document.querySelector('#strictButton')
 let strict = false;
-strict.addEventListener('click', () => {
-    if (!strict) {
+strictButton.addEventListener('click', () => {
+    if (strictButton.dataOn == true) {
         strict = true;
-      console.log('true')
     }
     else {
         strict = false;
-        console.log('false')
+  
     }
 });
