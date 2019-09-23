@@ -214,10 +214,12 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
 
 #counter {
   
-  width: 50%;
-  float: left;
+  width: 40%;
   text-align: center;
-  margin:0;
+  margin-left:70px;
+  color:#F50505;
+  border: solid white;
+  
 
 }
 
