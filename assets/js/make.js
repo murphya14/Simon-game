@@ -9,15 +9,11 @@ let Strict =false;
 let noise = true;
 let on = false;
 let win;
-
-
 let offNoise = new Audio('');
 let winNoise = new Audio('');
 let strictNoise = new Audio('');
 
-
-
-const turnCounter = document.querySelector("#turn");
+const turnCounter = document.querySelector("#counter");
 const topLeft = document.querySelector("#one");
 const topRight = document.querySelector("#two");
 const bottomLeft = document.querySelector("#three");
@@ -39,34 +35,66 @@ $(".close, .popup-overlay").on("click", function() {
   $(".popup-overlay, .popup-content").removeClass("active");
 });
 
- /*--------------------------------------------------------------------------------- start button*/
-$(".start-button").click( function() {
-    $(".start-button").addClass("begin-game-start");
-    $(".pad").addClass("begin-game-pads");
- 
+ /*--------------------------------------------------------------------------------- Checking strict mode button*/
+
+
+function checkStrict() {
+    if ($("#strict").is(":checked")){
+      Strict = true;
+    } else {
+      Strict = false;
+    }
+  }
+  
+  
+  /*--------------------------------------------------------------------------------- What happens when Power is clicked */
+  
+  function flashColor() {
+  $(".pad").addClass('begin-game-pads');
+    
+  $("#on").addClass("begin-game-start");
+  }
+  
+  
+    $("#on").click(function() {
+    if (onButton.checked == true) {
+    on = true;
+    $("#counter").innerHTML = "--";
+  } else {
+    on = false;
+    $("#counter").innerHTML = "Score";
+    flashColor();
+
+    clearInterval(intervalId);
+  }
+});
+     
+  
+ /*--------------------------------------------------------------------------------- What happens when start is clicked */
+  
+    $("#start").click(function() {
+    checkStrict();
+    
 })
 
 
-$('#start').click(function() {
-    $('#start').prop('disabled', true);
-     setTimeout(() => {
-             $('#start').prop('disabled', false);
-        }, 5000);
-});
-startButton.addEventListener('click', (event) => {
-    if (on || win) {
-            play();
-        start = true;
-    
-    }
-    if (onButton.checked == false) {
-        
-        start = false;
-        
-    }
-    }); 
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
  /*----------------------------------------------------------------------------------COUNTER*/
 function counter (){
