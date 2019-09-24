@@ -56,18 +56,14 @@ function checkStrict() {
   }
   
   
-    $("#on").click(function() {
-    if (onButton.checked == true) {
+   onButton.addEventListener('click', (event) => {
     on = true;
     $("#counter").innerHTML = "--";
-  } else {
-    on = false;
-    $("#counter").innerHTML = "Score";
+  
     flashColor();
 
     clearInterval(intervalId);
-  }
-});
+ });
      
   
  /*--------------------------------------------------------------------------------- What happens when start is clicked */
