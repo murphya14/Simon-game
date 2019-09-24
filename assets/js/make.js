@@ -28,7 +28,7 @@ const startButton = document.querySelector("#start");
 
 
 
- /*Modal button*/
+ /*--------------------------------------------------------------------------------Modal button*/
 $(".open").on("click", function() {
   $(".popup-overlay, .popup-content").addClass("active");
   
@@ -39,20 +39,36 @@ $(".close, .popup-overlay").on("click", function() {
   $(".popup-overlay, .popup-content").removeClass("active");
 });
 
- /*What happens when you press the start button*/
-
-$("#start").click(function(){
-  $(this).css("background-color", "#49fb35");
-
-  $(".pad").css("opacity", "1");
-  
-  document.getElementById("start").addEventListener("transitionend", $(".pad"));
-
+ /*--------------------------------------------------------------------------------- start button*/
+$(".start-button").click( function() {
+    $(".start-button").addClass("begin-game-start");
+    $(".pad").addClass("begin-game-pads");
+ 
 })
 
 
-
- /*COUNTER*/
+$('#start').click(function() {
+    $('#start').prop('disabled', true);
+     setTimeout(() => {
+             $('#start').prop('disabled', false);
+        }, 5000);
+});
+startButton.addEventListener('click', (event) => {
+    if (on || win) {
+            play();
+        start = true;
+    
+    }
+    if (onButton.checked == false) {
+        
+        start = false;
+        
+    }
+    }); 
+    
+    
+    
+ /*----------------------------------------------------------------------------------COUNTER*/
 function counter (){
     var currentVal = document.getElementById("counter").innerHTML;
     var newVal = 0;
@@ -65,7 +81,7 @@ function counter (){
 }
 
 
-/*Strict*/
+/*-------------------------------------------------------------------------------------Strict*/
 
 strictButton.addEventListener('click', () => {
     if (strictButton.dataOn == true) {
