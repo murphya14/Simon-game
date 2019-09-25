@@ -52,41 +52,42 @@ function checkStrict() {
     /*----------------------------------------Flash at start of the game */
  let flashColor = function flashColor() {
   $(".pad").addClass('begin-game-pads');
-    
-  
-  }
+  };
   
       /*----------------------------------------Removal of flash */
   
   let clearColor = function clearColor(){
        $(".pad").removeClass('begin-game-pads');
-  }
+  };
   
   
     /*----------------------------------------Power is clicked*/
     
-onButton.addEventListener('click', (event) => {
+$("#on").click(function() {
         on =true;
-      $("#on").addClass('begin-game-start');
+      $("#on").addClass("begin-game-start");
       flashColor();
-       turnCounter.innerHTML = "--";
+      turnCounter.innerHTML = "--";
 });
 
+if(on==false){
+turnCounter.innerHTML = "Score";
+    clearColor();
+    clearInterval(intervalId);
+}
 
 
-
- 
 
   
  /*--------------------------------------------------------------------------------- What happens when start is clicked */
   
-    $("#start").click(function() {
-    checkStrict();
-    $("#start").addClass('begin-game-start');
-    
+$("#start").click(function() {
+      $("#start").addClass("begin-game-start");
+      checkStrict();
+    clearColor();
 })
 
-  onButton.click(function() {
+startButton.click(function() {
         initializeGame();
     });
  /*--------------------------------------------------------------------------------- Strict button setting */

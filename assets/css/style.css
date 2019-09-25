@@ -206,6 +206,7 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
     cursor: pointer
 }
 
+
 .start-button:hover {
     background-color: #49fb35;
 }
@@ -224,7 +225,6 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
   
 
 }
-
 /*-----------------------------------slider- using help from https://www.w3schools.com/howto/howto_css_switch.asp*/
 .switch {
   position: relative;
