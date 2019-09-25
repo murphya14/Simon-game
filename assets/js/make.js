@@ -23,7 +23,7 @@ const onButton = document.querySelector("#on");
 const startButton = document.querySelector("#start");
 
 
-$(document).ready(function() {
+
  /*--------------------------------------------------------------------------------Modal button*/
 $(".open").on("click", function() {
   $(".popup-overlay, .popup-content").addClass("active");
@@ -50,10 +50,10 @@ function checkStrict() {
   /*--------------------------------------------------------------------------------- What happens when Power is clicked */
   
     /*----------------------------------------Flash at start of the game */
- function flashColor() {
+ let flashColor = function flashColor() {
   $(".pad").addClass('begin-game-pads');
     
-  $("#on").addClass("begin-game-start");
+  
   }
   
       /*----------------------------------------Removal of flash */
@@ -62,39 +62,33 @@ function checkStrict() {
        $(".pad").removeClass('begin-game-pads');
   }
   
+  
     /*----------------------------------------Power is clicked*/
     
 onButton.addEventListener('click', (event) => {
-    on = true;
-    flashColor();
-    clearInterval(intervalId);
- });
+        on =true;
+      $("#on").addClass('begin-game-start');
+      flashColor();
+       turnCounter.innerHTML = "--";
+});
 
-if (onButton.checked == true) {
-    on = true;
-    turnCounter.innerHTML = "--";
-  }setTimeout(function() {
-                clearColor();
-            }, 6000);;
-  
- if(on = false){
-    turnCounter.innerHTML = "Score";
-    clearInterval(intervalId);
-  };
+
 
 
  
-   onButton.click(function() {
-        initializeGame();
-    });
 
   
  /*--------------------------------------------------------------------------------- What happens when start is clicked */
   
     $("#start").click(function() {
     checkStrict();
+    $("#start").addClass('begin-game-start');
     
 })
+
+  onButton.click(function() {
+        initializeGame();
+    });
  /*--------------------------------------------------------------------------------- Strict button setting */
 
 function toggle(button) 
@@ -151,9 +145,3 @@ strictButton.addEventListener('click', () => {
   
     }
 });
-
-
-}
-
-
-
