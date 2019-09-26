@@ -69,27 +69,42 @@ $("#on").click(function() {
       flashColor();
       turnCounter.innerHTML = "--";
 });
-
+ /*--------------------------------------------------------------------------------- What happens when start is clicked */
 if(on==false){
 turnCounter.innerHTML = "Score";
     clearColor();
     clearInterval(intervalId);
 }
 
-
-
-  
- /*--------------------------------------------------------------------------------- What happens when start is clicked */
 if( on =true){
 $("#start").click(function() {
       $("#start").addClass("begin-game-start");
-      checkStrict();
-    clearColor();
+      clearColor();
+      allowStart();
+      initializeGame();
 });
 }
-startButton.click(function() {
+
+
+/*----------------------------------------The game cannot start before power has been turned on */
+let allowStart = startButton.click(function() {
         initializeGame();
-    });
+});
+    
+ 
+/*----------------------------------------Initialize game outs everything back to default settings */   
+    
+function initializeGame() {
+    clearInterval(playInterval);
+    clearColor();
+    turnCounter.innerHTML('0');
+    sequence = [];
+    turn = 0;
+    $(".pad").addClass('disabled');
+    randomNumber();
+    gamePlay();
+}
+    
  /*--------------------------------------------------------------------------------- Strict button setting */
 
 function toggle(button) 
@@ -106,7 +121,42 @@ function toggle(button)
 }
 
 
+/*------------------------------------------------------- Pad reaction when clicked*/
+function one() {
+  if (noise) {
+    let audio = document.getElementById("clip1");
+    audio.play();
+  }
+  noise = true;
+  topLeft.css("opacity=1");
+}
 
+function two() {
+  if (noise) {
+    let audio = document.getElementById("clip2");
+    audio.play();
+  }
+  noise = true;
+  topRight.css("opacity=1");
+}
+
+function three() {
+  if (noise) {
+    let audio = document.getElementById("clip3");
+    audio.play();
+  }
+  noise = true;
+  bottomLeft.css("opacity=1");
+}
+
+function four() {
+  if (noise) {
+    let audio = document.getElementById("clip4");
+    audio.play();
+  }
+  noise = true;
+  bottomRight.css("opacity=1");
+}
 
 
 
