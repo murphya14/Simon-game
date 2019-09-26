@@ -189,9 +189,11 @@ function flashTimeout() {
     }, 500);
 
 
+/*---------------------------This function is incurred when it is game over and reflects this message in the Counter box */
 
-
-
+function showGameOver() {
+   turnCounter.innerHTML("GAME OVER");
+}
 
 
 
