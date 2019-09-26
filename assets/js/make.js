@@ -80,13 +80,13 @@ turnCounter.innerHTML = "Score";
 
   
  /*--------------------------------------------------------------------------------- What happens when start is clicked */
-  
+if( on =true){
 $("#start").click(function() {
       $("#start").addClass("begin-game-start");
       checkStrict();
     clearColor();
-})
-
+});
+}
 startButton.click(function() {
         initializeGame();
     });
