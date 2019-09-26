@@ -120,8 +120,31 @@ function toggle(button)
      }
 }
 
+strictButton.addEventListener('click', () => {
+    if (strictButton.dataOn == true) {
+        strict = true;
+    }
+    else {
+        strict = false;
+  
+    }
+});
 
-/*------------------------------------------------------- Pad reaction when clicked*/
+ /*----------------------------------------------------------------------------------COUNTER*/
+function counter (){
+    var currentVal = document.getElementById("counter").innerHTML;
+    var newVal = 0;
+    
+    if (currentVal<20){
+        newval = currentVal + 1;
+    }
+    
+    document.getElementById("counter").innerHTML = newVal;
+}
+
+
+
+/*------------------------------------------------------- Pairing color change and audio*/
 function one() {
   if (noise) {
     let audio = document.getElementById("clip1");
@@ -158,9 +181,12 @@ function four() {
   bottomRight.css("opacity=1");
 }
 
+/*---------------------------This removes the flash of the pads after 500 milliseconds */
 
-
-
+function flashTimeout() {
+    playTimeout = setTimeout(function() {
+        clearColor();
+    }, 500);
 
 
 
@@ -172,27 +198,5 @@ function four() {
 
 
     
- /*----------------------------------------------------------------------------------COUNTER*/
-function counter (){
-    var currentVal = document.getElementById("counter").innerHTML;
-    var newVal = 0;
-    
-    if (currentVal<20){
-        newval = currentVal + 1;
-    }
-    
-    document.getElementById("counter").innerHTML = newVal;
-}
 
 
-/*-------------------------------------------------------------------------------------Strict*/
-
-strictButton.addEventListener('click', () => {
-    if (strictButton.dataOn == true) {
-        strict = true;
-    }
-    else {
-        strict = false;
-  
-    }
-});
