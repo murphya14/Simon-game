@@ -90,9 +90,17 @@ function initializeGame() {
     sequence = [];
     turn = 0;
     $(".pad").addClass('disabled');
-    randomNumber();
+    randomPad();
     gamePlay();
 }
+   
+/*----------------------------------------Pushes a number between 1-4 randomly into the sequence array */       
+function randomNumber() {
+      randomNum = Math.ceil(Math.random() * 4);
+    sequence.push(randomNum);
+    console.log(sequence);
+}
+    
     
  /*--------------------------------------------------------------------------------- Strict button setting */
 
