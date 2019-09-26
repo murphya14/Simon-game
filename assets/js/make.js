@@ -35,18 +35,7 @@ $(".close, .popup-overlay").on("click", function() {
   $(".popup-overlay, .popup-content").removeClass("active");
 });
 
- /*--------------------------------------------------------------------------------- Checking strict mode button*/
 
-
-function checkStrict() {
-    if ($("#strict").is(":checked")){
-      Strict = true;
-    } else {
-      Strict = false;
-    }
-  }
-  
-  
   /*--------------------------------------------------------------------------------- What happens when Power is clicked */
   
     /*----------------------------------------Flash at start of the game */
@@ -107,38 +96,27 @@ function initializeGame() {
     
  /*--------------------------------------------------------------------------------- Strict button setting */
 
-function toggle(button) 
-{
-     switch(button.value)
-     {
-          case "ON":
-               button.value = "OFF";
-               break;
-          case "OFF":
-               button.value = "ON";
-               break;
-     }
-}
 
-strictButton.addEventListener('click', () => {
-    if (strictButton.dataOn == true) {
-        strict = true;
+
+function checkStrict() {
+    if ($("#strict").is(":checked")){
+      Strict = true;
+    } else {
+      Strict = false;
     }
-    else {
-        strict = false;
+  }
   
-    }
-});
+  
 
- /*----------------------------------------------------------------------------------COUNTER*/
+ /*----------------------------------------------------------------------------------COUNTER: Sets the value of the new value as it is incremented by 1*/
+ 
 function counter (){
-    var currentVal = document.getElementById("counter").innerHTML;
+    var currentVal = document.getElementById("counter");
     var newVal = 0;
     
     if (currentVal<20){
         newval = currentVal + 1;
     }
-    
     document.getElementById("counter").innerHTML = newVal;
 }
 
@@ -152,7 +130,7 @@ function one() {
   }
   noise = true;
   topLeft.css("opacity=1");
-}
+};
 
 function two() {
   if (noise) {
@@ -161,7 +139,7 @@ function two() {
   }
   noise = true;
   topRight.css("opacity=1");
-}
+};
 
 function three() {
   if (noise) {
@@ -170,7 +148,7 @@ function three() {
   }
   noise = true;
   bottomLeft.css("opacity=1");
-}
+};
 
 function four() {
   if (noise) {
@@ -179,7 +157,7 @@ function four() {
   }
   noise = true;
   bottomRight.css("opacity=1");
-}
+};
 
 /*---------------------------This removes the flash of the pads after 500 milliseconds */
 
@@ -193,10 +171,17 @@ function flashTimeout() {
 
 function showGameOver() {
    turnCounter.innerHTML("GAME OVER");
+};
+
+/*---------------------------This function is incurred when it is game over and reflects this message in the Counter box if the player has won adn plays the winning music*/
+
+function winGame() {
+    turnCounter.innerHTML("WIN!");
+    flashColor()
+    setTimeout(function() {
+        winNoise;
+    }, 2000);
 }
-
-
-
 
 
     

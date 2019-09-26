@@ -295,8 +295,8 @@ margin-left: 55px;
 
 }
 
-
-
+/*Class for JS*/
+.disabled { pointer-events: none; } 
 
 /*Footers*/
 
