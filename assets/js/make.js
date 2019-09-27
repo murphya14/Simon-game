@@ -98,6 +98,7 @@ function initializeGame() {
     randomPad();
     gamePlay();
     intervalId = setInterval(gameTurn, 800);
+    check();
 
 }
    
@@ -144,6 +145,78 @@ function gamePlay() {
         computerCount++;
     }, 800);
 }
+
+ /*------------------------------------- function to check if the array of the computer matches the array the player has inputted */
+
+function check() {
+    playerCount++;
+            /*-------------Assigns variables to see if the player and computer sequence match*/
+  let playerSeqMatch =
+   playerSequence[playerCount - 1] === sequence[playerCount - 1];
+    good = true;
+    
+    let playerSeqNotMatch = 
+    playerSequence[playerCount - 1] !== sequence[playerCount - 1];
+    good = false;
+    
+  
+    /*-------------Assigns the boolean "good" which reacts to whether the sequence of the player and computer match and incorporates the strict rule*/
+   if (good == false) {
+    flashColor();
+    turnCounter.innerHTML = "Nope!";
+    setTimeout(() => {
+      turnCounter.innerHTML = turn;
+      clearColor()
+      checkStrict();
+      
+      if (good == true) {
+    flashColor();
+    turnCounter.innerHTML = "WELL DONE!";
+    setTimeout(() => {
+      turnCounter.innerHTML = turn;
+      clearColor();
+      checkStrict();
+ 
+ /*-------------Assigns the rule that will apply if strict is on*/
+      
+    if (strict = true && playerSeqNotMatch) {
+        showGameOver();
+      } else {
+        compTurn = true;
+        flash = 0;
+        playerOrder = [];
+        good = true;
+        intervalId = setInterval(gameTurn, 800);
+      }
+    }, 800);
+
+    noise = offNoise;
+  }
+  
+   /*-------------Assigns the rule that will apply if the sequence of the player and computer match*/
+    
+  if (playerSeqMatch) {
+    turn++;
+    playerOrder = [];
+    compTurn = true;
+    flash = 0;
+    good=true;
+    counter();
+    intervalId = setInterval(gameTurn, 800);
+}
+
+ /*-------------Criteria for the game to be won and what occurs*/
+
+if (playerCount === 20 && strictMode && playerSeqMatch) {
+        clearInterval(playInterval);
+        winGame();
+}
+   
+    
+ /*-------------------------------------Running the check function through when the pads have been clicked by the player*/
+ 
+ 
+ 
  /*--------------------------------------------------------------------------------- Strict button setting */
 
 
@@ -233,8 +306,4 @@ function winGame() {
         winNoise;
     }, 2000);
 }
-
-
-    
-
 
