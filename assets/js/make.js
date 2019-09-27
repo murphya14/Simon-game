@@ -1,5 +1,5 @@
 let order = [];
-let playerOrder = [];
+let playerSequence = [];
 let flash;
 let turn;
 let good;
@@ -12,6 +12,11 @@ let win;
 let offNoise = new Audio('');
 let winNoise = new Audio('');
 let strictNoise = new Audio('');
+let playInterval;
+let playTimeout; 
+let computerCount;
+let playerCount;
+
 
 const turnCounter = document.querySelector("#counter");
 const topLeft = document.querySelector("#one");
@@ -92,6 +97,8 @@ function initializeGame() {
     $(".pad").addClass('disabled');
     randomPad();
     gamePlay();
+    intervalId = setInterval(gameTurn, 800);
+
 }
    
 /*----------------------------------------Pushes a number between 1-4 randomly into the sequence array */       
@@ -101,7 +108,42 @@ function randomNumber() {
     console.log(sequence);
 }
     
+/*----------------------------------------This is the computers turn to generate a sequence. It sets the computer and player to 0. There is an array for the
+player sequence. The turn increment sets the array, playerCount and computerCount back to 0 for the next count. The player interval is a switch that checks the sequence in the array. Each element of the sequence produces a flash and associated sound. 
+The value of the ComputerCount determines how many times this will be run. Once the sequence matches the computerCount, the playInterval will stop which allows the player to start clicking. 
+The computerCount is then incremented by 1.*/      
     
+
+    
+function gamePlay() {
+    turn++;
+    playerCount = 0;
+    computerCount = 0;
+    playerSequence = [];
+    playInterval = setInterval(function() {
+        switch (sequence[computerCount]) {
+            case 1:
+               one();
+                break;
+            case 2:
+                two();
+                break;
+            case 3:
+                three();
+                break;
+            case 4:
+                four();
+                break;
+            default:
+                break;
+        }
+        if (sequence.length === computerCount) {
+            clearInterval(playInterval);
+            $(".pad").removeClass('disabled');
+        }
+        computerCount++;
+    }, 800);
+}
  /*--------------------------------------------------------------------------------- Strict button setting */
 
 
@@ -170,7 +212,7 @@ function four() {
 /*---------------------------This removes the flash of the pads after 500 milliseconds */
 
 function flashTimeout() {
-    playTimeout = setTimeout(function() {
+    flashColor = setTimeout(function() {
         clearColor();
     }, 500);
 
@@ -179,6 +221,7 @@ function flashTimeout() {
 
 function showGameOver() {
    turnCounter.innerHTML("GAME OVER");
+   flashColor();
 };
 
 /*---------------------------This function is incurred when it is game over and reflects this message in the Counter box if the player has won adn plays the winning music*/
