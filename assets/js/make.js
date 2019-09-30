@@ -29,6 +29,10 @@ const startButton = document.querySelector("#start");
 
 
 
+ /*---------------------------------JQuery/JS will load once the DOM is ready*/
+
+$(document).ready(function() {
+
  /*--------------------------------------------------------------------------------Modal button*/
 $(".open").on("click", function() {
   $(".popup-overlay, .popup-content").addClass("active");
@@ -168,18 +172,19 @@ function check() {
       turnCounter.innerHTML = turn;
       clearColor()
       checkStrict();
-      
-      if (good == true) {
+     
+    if(good==true)
     flashColor();
     turnCounter.innerHTML = "WELL DONE!";
     setTimeout(() => {
       turnCounter.innerHTML = turn;
       clearColor();
       checkStrict();
+      counter();
  
  /*-------------Assigns the rule that will apply if strict is on*/
       
-    if (strict = true && playerSeqNotMatch) {
+    if (Strict = true && playerSeqNotMatch) {
         showGameOver();
       } else {
         compTurn = true;
@@ -191,7 +196,7 @@ function check() {
     }, 800);
 
     noise = offNoise;
-  }
+ 
   
    /*-------------Assigns the rule that will apply if the sequence of the player and computer match*/
     
@@ -203,16 +208,17 @@ function check() {
     good=true;
     counter();
     intervalId = setInterval(gameTurn, 800);
+    
 }
 
  /*-------------Criteria for the game to be won and what occurs*/
 
-if (playerCount === 20 && strictMode && playerSeqMatch) {
+if (playerCount === 20 && playerSeqMatch) {
         clearInterval(playInterval);
         winGame();
 }
    
-    
+ });   
  /*-------------------------------------Running the check function through when the pads have been clicked by the player*/
  
  
@@ -305,5 +311,6 @@ function winGame() {
     setTimeout(function() {
         winNoise;
     }, 2000);
-}
+};
 
+};
