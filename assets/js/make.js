@@ -36,7 +36,6 @@ $(document).ready(function() {
  /*--------------------------------------------------------------------------------Modal button*/
 $(".open").on("click", function() {
   $(".popup-overlay, .popup-content").addClass("active");
-  
 });
 
 //removes the "active" class to .popup and .popup-content when the "Close" button is clicked 
@@ -74,14 +73,15 @@ turnCounter.innerHTML = "Score";
     clearInterval(intervalId);
 }
 
-if( on =true){
+if( on==true){
 $("#start").click(function() {
       $("#start").addClass("begin-game-start");
       clearColor();
       allowStart();
       initializeGame();
 });
-}
+};
+
 
 
 /*----------------------------------------The game cannot start before power has been turned on */
@@ -170,10 +170,10 @@ function check() {
     turnCounter.innerHTML = "Nope!";
     setTimeout(() => {
       turnCounter.innerHTML = turn;
-      clearColor()
+      clearColor();
       checkStrict();
-     
-    if(good==true)
+      
+     if(good==true){
     flashColor();
     turnCounter.innerHTML = "WELL DONE!";
     setTimeout(() => {
@@ -207,18 +207,16 @@ function check() {
     flash = 0;
     good=true;
     counter();
-    intervalId = setInterval(gameTurn, 800);
+    intervalId = setInterval(gameTurn, 800);}
     
-}
+};
 
  /*-------------Criteria for the game to be won and what occurs*/
 
 if (playerCount === 20 && playerSeqMatch) {
         clearInterval(playInterval);
         winGame();
-}
-   
- });   
+};   
  /*-------------------------------------Running the check function through when the pads have been clicked by the player*/
  
  
@@ -233,7 +231,7 @@ function checkStrict() {
     } else {
       Strict = false;
     }
-  }
+  };
   
   
 
@@ -294,6 +292,8 @@ function flashTimeout() {
     flashColor = setTimeout(function() {
         clearColor();
     }, 500);
+};
+
 
 
 /*---------------------------This function is incurred when it is game over and reflects this message in the Counter box */
