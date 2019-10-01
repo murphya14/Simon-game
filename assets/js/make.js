@@ -148,7 +148,7 @@ function gamePlay() {
         }
         computerCount++;
     }, 800);
-}
+}s
 
  /*------------------------------------- function to check if the array of the computer matches the array the player has inputted */
 
@@ -162,40 +162,39 @@ function check() {
     let playerSeqNotMatch = 
     playerSequence[playerCount - 1] !== sequence[playerCount - 1];
     good = false;
-    
-  
+
     /*-------------Assigns the boolean "good" which reacts to whether the sequence of the player and computer match and incorporates the strict rule*/
    if (good == false) {
     flashColor();
     turnCounter.innerHTML = "Nope!";
-    setTimeout(() => {
+    setTimeout(function(){
       turnCounter.innerHTML = turn;
       clearColor();
-      checkStrict();
+      checkStrict();}, 3000);
       
      if(good==true){
     flashColor();
     turnCounter.innerHTML = "WELL DONE!";
-    setTimeout(() => {
+    setTimeout(function() {
       turnCounter.innerHTML = turn;
       clearColor();
       checkStrict();
-      counter();
+      counter();}, 3000);
  
  /*-------------Assigns the rule that will apply if strict is on*/
       
-    if (Strict = true && playerSeqNotMatch) {
+    if (Strict == true && playerSeqNotMatch) setTimeout(function() {
         showGameOver();
-      } else {
+      }, 800); 
+      
+      else setTimeout(function()  {
         compTurn = true;
         flash = 0;
         playerOrder = [];
         good = true;
-        intervalId = setInterval(gameTurn, 800);
-      }
-    }, 800);
+      }, 800);
 
-    noise = offNoise;
+    
  
   
    /*-------------Assigns the rule that will apply if the sequence of the player and computer match*/
@@ -313,4 +312,4 @@ function winGame() {
     }, 2000);
 };
 
-};
+});
