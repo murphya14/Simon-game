@@ -170,7 +170,7 @@ function check() {
     setTimeout(function(){
       turnCounter.innerHTML = turn;
       clearColor();
-      checkStrict();}, 3000);
+      checkStrict();}, 3000);}
       
      if(good==true){
     flashColor();
@@ -179,7 +179,7 @@ function check() {
       turnCounter.innerHTML = turn;
       clearColor();
       checkStrict();
-      counter();}, 3000);
+      counter();}, 3000);}
  
  /*-------------Assigns the rule that will apply if strict is on*/
       
