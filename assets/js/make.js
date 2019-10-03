@@ -56,7 +56,27 @@ $(".close, .popup-overlay").on("click", function() {
   let clearColor = function clearColor(){
        $(".pad").removeClass('begin-game-pads');
   };
-  
+  /*----------------------------------------The game cannot start before power has been turned on */
+let allowStart = startButton.click(function() {
+        initializeGame();
+});
+   
+      
+ /*--------------------------------------------------------------------------------- What happens when start is clicked(after on has been clicked) */
+if(on =false){
+    turnCounter.innerHTML = "--";
+    clearColor();
+    clearInterval(intervalId);
+}
+
+if( on =true){
+$("#start").click(function() {
+      $("#start").addClass("begin-game-start");
+      clearColor();
+      allowStart();
+});
+}
+
   
     /*----------------------------------------Power is clicked*/
     
@@ -64,32 +84,12 @@ $("#on").click(function() {
         on =true;
       $("#on").addClass("begin-game-start");
       flashColor();
-      turnCounter.innerHTML = "--";
+      turnCounter.innerHTML = "Score";
 });
- /*--------------------------------------------------------------------------------- What happens when start is clicked */
-if(on==false){
-turnCounter.innerHTML = "Score";
-    clearColor();
-    clearInterval(intervalId);
-}
-
-if( on==true){
-$("#start").click(function() {
-      $("#start").addClass("begin-game-start");
-      clearColor();
-      allowStart();
-      initializeGame();
-});
-};
 
 
 
-/*----------------------------------------The game cannot start before power has been turned on */
-let allowStart = startButton.click(function() {
-        initializeGame();
-});
-    
- 
+
 /*----------------------------------------Initialize game outs everything back to default settings */   
     
 function initializeGame() {
@@ -105,7 +105,8 @@ function initializeGame() {
     check();
 
 }
-   
+
+
 /*----------------------------------------Pushes a number between 1-4 randomly into the sequence array */       
 function randomNumber() {
       randomNum = Math.ceil(Math.random() * 4);
