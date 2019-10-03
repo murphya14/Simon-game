@@ -1,5 +1,5 @@
 let order = [];
-let playerSequence = [];
+let sequence = [];
 let flash;
 let turn;
 let good;
@@ -17,6 +17,7 @@ let playTimeout;
 let computerCount;
 let playerCount;
 let allowStart;
+let randomPad;
 
 
 const turnCounter = document.querySelector("#counter");
@@ -100,15 +101,15 @@ $("#on").click(function() {
 function initializeGame() {
     clearInterval(playInterval);
     clearColor();
-    turnCounter.innerHTML('0');
+    turnCounter.innerHTML="0";
     sequence = [];
     turn = 0;
     $(".pad").addClass('disabled');
     randomPad();
     gamePlay();
-    intervalId = setInterval(gameTurn, 800);
+    intervalId = setInterval(turn, 800);
     check();
-console.log("initializeGame")
+console.log("initializeGame");
 }
 
 
