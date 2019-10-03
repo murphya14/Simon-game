@@ -1,5 +1,6 @@
 let order = [];
 let sequence = [];
+let playerSequence = []
 let flash;
 let turn;
 let good;
@@ -17,7 +18,8 @@ let playTimeout;
 let computerCount;
 let playerCount;
 let allowStart;
-let randomPad;
+let randomNumber;
+let randomNum;
 
 
 const turnCounter = document.querySelector("#counter");
@@ -65,9 +67,8 @@ function flashColor() {
 let allowStart = startButton.onclick = () => {
         $("#start").addClass("begin-game-start");
         clearColor();
-        initializeGame();
-        
-};
+        setTimeout(initializeGame(), 3000);
+        };
  /*--------------------------------------------------------------------------------- What happens when start is clicked(after on has been clicked) */
 
 
@@ -104,8 +105,9 @@ function initializeGame() {
     randomNumber();
     gamePlay();
     intervalId = setInterval(turn, 800);
+    gamePlay();
+    checkStrict();
     check();
-
 }
 
 
@@ -127,7 +129,7 @@ function gamePlay() {
     turn++;
     playerCount = 0;
     computerCount = 0;
-    playerSequence = [];
+    sequence = [];
     playInterval = setInterval(function() {
         switch (sequence[computerCount]) {
             case 1:
@@ -153,11 +155,8 @@ function gamePlay() {
     }, 800);
 }
 
- /*------------------------------------- function to check if the array of the computer matches the array the player has inputted */
+ /*------------------------------------- function to check if the array of the computer matches the array the player has inputted and increment the count*/
 
-function check() {
-    playerCount++;
-            /*-------------Assigns variables to see if the player and computer sequence match*/
   let playerSeqMatch =
    playerSequence[playerCount - 1] === sequence[playerCount - 1];
     good = true;
@@ -165,6 +164,12 @@ function check() {
     let playerSeqNotMatch = 
     playerSequence[playerCount - 1] !== sequence[playerCount - 1];
     good = false;
+
+
+function check() {
+    playerCount++;
+            /*-------------Assigns variables to see if the player and computer sequence match*/
+
 
     /*-------------Assigns the boolean "good" which reacts to whether the sequence of the player and computer match and incorporates the strict rule*/
    if (good == false) {
@@ -179,12 +184,13 @@ function check() {
     flashColor();
     turnCounter.innerHTML = "WELL DONE!";
     setTimeout(function() {
-      turnCounter.innerHTML = turn;
+      turnCounter.innerHTML = counter();
       clearColor();
       checkStrict();
       counter();}, 3000);}
  
  /*-------------Assigns the rule that will apply if strict is on*/
+
       
     if (Strict == true && playerSeqNotMatch) setTimeout(function() {
         showGameOver();
@@ -193,7 +199,7 @@ function check() {
       else setTimeout(function()  {
         compTurn = true;
         flash = 0;
-        playerOrder = [];
+        order = [];
         good = true;
       }, 800);
 
@@ -204,21 +210,21 @@ function check() {
     
   if (playerSeqMatch) {
     turn++;
-    playerOrder = [];
+    order = [];
     compTurn = true;
     flash = 0;
     good=true;
     counter();
-    intervalId = setInterval(gameTurn, 800);}
+    intervalId = setInterval(turn, 800);}
     
-};
+}
 
  /*-------------Criteria for the game to be won and what occurs*/
 
 if (playerCount === 20 && playerSeqMatch) {
         clearInterval(playInterval);
         winGame();
-};   
+}
  /*-------------------------------------Running the check function through when the pads have been clicked by the player*/
  
  
@@ -233,8 +239,7 @@ function checkStrict() {
     } else {
       Strict = false;
     }
-  };
-  
+  }
   
 
  /*----------------------------------------------------------------------------------COUNTER: Sets the value of the new value as it is incremented by 1*/
@@ -244,22 +249,22 @@ function counter (){
     var newVal = 0;
     
     if (currentVal<20){
-        newval = currentVal + 1;
+         newval = currentVal + 1;
     }
     document.getElementById("counter").innerHTML = newVal;
 }
 
 
 
-/*------------------------------------------------------- Pairing color change and audio*/
+/*------------------------------------------------------- Pairing color change and audio for each of the four pads*/
 function one() {
   if (noise) {
     let audio = document.getElementById("clip1");
     audio.play();
   }
   noise = true;
-  topLeft.css("opacity=1");
-};
+  one.css("opacity=1");
+}
 
 function two() {
   if (noise) {
@@ -267,8 +272,8 @@ function two() {
     audio.play();
   }
   noise = true;
-  topRight.css("opacity=1");
-};
+  two.css("opacity=1");
+}
 
 function three() {
   if (noise) {
@@ -276,8 +281,8 @@ function three() {
     audio.play();
   }
   noise = true;
-  bottomLeft.css("opacity=1");
-};
+  three.css("opacity=1");
+}
 
 function four() {
   if (noise) {
@@ -285,16 +290,17 @@ function four() {
     audio.play();
   }
   noise = true;
-  bottomRight.css("opacity=1");
-};
+  four.css("opacity=1");
+}
 
 /*---------------------------This removes the flash of the pads after 500 milliseconds */
 
 function flashTimeout() {
-    flashColor = setTimeout(function() {
+    flashColor;
+    setTimeout(function() {
         clearColor();
     }, 500);
-};
+}
 
 
 
@@ -303,16 +309,16 @@ function flashTimeout() {
 function showGameOver() {
    turnCounter.innerHTML("GAME OVER");
    flashColor();
-};
+}
 
 /*---------------------------This function is incurred when it is game over and reflects this message in the Counter box if the player has won adn plays the winning music*/
 
 function winGame() {
     turnCounter.innerHTML("WIN!");
-    flashColor()
+    flashColor();
     setTimeout(function() {
         winNoise;
     }, 2000);
-};
+}
 
 });
