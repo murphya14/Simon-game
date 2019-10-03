@@ -16,6 +16,7 @@ let playInterval;
 let playTimeout; 
 let computerCount;
 let playerCount;
+let allowStart;
 
 
 const turnCounter = document.querySelector("#counter");
@@ -38,7 +39,7 @@ $(".open").on("click", function() {
   $(".popup-overlay, .popup-content").addClass("active");
 });
 
-//removes the "active" class to .popup and .popup-content when the "Close" button is clicked 
+/*removes the "active" class to .popup and .popup-content when the "Close" button is clicked*/
 $(".close, .popup-overlay").on("click", function() {
   $(".popup-overlay, .popup-content").removeClass("active");
 });
@@ -47,39 +48,36 @@ $(".close, .popup-overlay").on("click", function() {
   /*--------------------------------------------------------------------------------- What happens when Power is clicked */
   
     /*----------------------------------------Flash at start of the game */
- let flashColor = function flashColor() {
+function flashColor() {
   $(".pad").addClass('begin-game-pads');
-  };
+ 
+  }
   
       /*----------------------------------------Removal of flash */
  
-    
-  
-  let clearColor = function clearColor(){
+ function clearColor(){
        $(".pad").removeClass('begin-game-pads');
-      
-  };
+       }
   
   /*----------------------------------------The game cannot start before power has been turned on */
-let allowStart = startButton.click(function() {
+
+let allowStart = startButton.onclick = () => {
         $("#start").addClass("begin-game-start");
-      clearColor();
+        clearColor();
         initializeGame();
-        console.log("yp");
         
-});
-   
-      
+        
+};
  /*--------------------------------------------------------------------------------- What happens when start is clicked(after on has been clicked) */
+
+
 if(on ==false){
     turnCounter.innerHTML = "--";
-      
     clearColor();
     clearInterval(intervalId);
 }
 else{
- allowStart();
-
+ allowStart;
 }
 
 
@@ -87,10 +85,11 @@ else{
     /*----------------------------------------Power is clicked*/
     
 $("#on").click(function() {
-        on ==true;
+       window.on ==true;
       $("#on").addClass("begin-game-start");
       flashColor();
       turnCounter.innerHTML = "Score";
+     
 });
 
 
@@ -109,7 +108,7 @@ function initializeGame() {
     gamePlay();
     intervalId = setInterval(gameTurn, 800);
     check();
-
+console.log("initializeGame")
 }
 
 
