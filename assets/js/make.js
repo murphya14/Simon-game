@@ -67,7 +67,6 @@ let allowStart = startButton.onclick = () => {
         clearColor();
         initializeGame();
         
-        
 };
  /*--------------------------------------------------------------------------------- What happens when start is clicked(after on has been clicked) */
 
@@ -93,9 +92,6 @@ $("#on").click(function() {
      
 });
 
-
-
-
 /*----------------------------------------Initialize game outs everything back to default settings */   
     
 function initializeGame() {
@@ -105,11 +101,11 @@ function initializeGame() {
     sequence = [];
     turn = 0;
     $(".pad").addClass('disabled');
-    randomPad();
+    randomNumber();
     gamePlay();
     intervalId = setInterval(turn, 800);
     check();
-console.log("initializeGame");
+
 }
 
 
