@@ -52,36 +52,42 @@ $(".close, .popup-overlay").on("click", function() {
   };
   
       /*----------------------------------------Removal of flash */
+ 
+    
   
   let clearColor = function clearColor(){
        $(".pad").removeClass('begin-game-pads');
+      
   };
+  
   /*----------------------------------------The game cannot start before power has been turned on */
 let allowStart = startButton.click(function() {
+        $("#start").addClass("begin-game-start");
+      clearColor();
         initializeGame();
+        console.log("yp");
+        
 });
    
       
  /*--------------------------------------------------------------------------------- What happens when start is clicked(after on has been clicked) */
-if(on =false){
+if(on ==false){
     turnCounter.innerHTML = "--";
+      
     clearColor();
     clearInterval(intervalId);
 }
+else{
+ allowStart();
 
-if( on =true){
-$("#start").click(function() {
-      $("#start").addClass("begin-game-start");
-      clearColor();
-      allowStart();
-});
 }
+
 
   
     /*----------------------------------------Power is clicked*/
     
 $("#on").click(function() {
-        on =true;
+        on ==true;
       $("#on").addClass("begin-game-start");
       flashColor();
       turnCounter.innerHTML = "Score";
@@ -149,7 +155,7 @@ function gamePlay() {
         }
         computerCount++;
     }, 800);
-}s
+}
 
  /*------------------------------------- function to check if the array of the computer matches the array the player has inputted */
 
