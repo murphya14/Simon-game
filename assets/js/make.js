@@ -19,7 +19,7 @@ let computerCount;
 let playerCount;
 let allowStart;
 let randomNumber;
-let randomNum;
+
 
 const turnCounter = document.querySelector("#counter");
 const topLeft = document.querySelector("#one");
@@ -99,10 +99,10 @@ function initializeGame() {
     clearColor();
     turnCounter.innerHTML="0";
     sequence = [];
+    playerSequence = [];
     turn = 0;
     $(".pad").addClass('disabled');
-    randomNumber();
-    intervalId = setInterval(turn, 800);
+    playerTimeout();
     gamePlay();
 
 }
@@ -110,8 +110,8 @@ function initializeGame() {
 
 /*----------------------------------------Pushes a number between 1-4 randomly into the sequence array */       
 function randomNumber() {
-      randomNum = Math.ceil(Math.random() * 4);
-    sequence.push(randomNum);
+      randomNumber = Math.ceil(Math.random() * 4);
+    sequence.push(randomNumber);
     console.log(sequence);
 }
     
@@ -124,8 +124,7 @@ The computerCount is then incremented by 1.*/
     
 function gamePlay() {
     turn++;
-    playerCount = 0;
-    computerCount = 0;
+    sequence=[];
     playerSequence = [];
     playInterval = setInterval(function() {
         switch (sequence[computerCount]) {
