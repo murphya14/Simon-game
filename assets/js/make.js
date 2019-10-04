@@ -188,9 +188,7 @@ topLeft.addEventListener('click', (event) => {
     check();
     one();
     if(!win) {
-         setTimeout(() => {
-        clearColor();
-      }, 300);
+       playerTimeout();
     }
   }
 });
@@ -201,9 +199,7 @@ topRight.addEventListener('click', (event) => {
     check();
     two();
     if(!win) {
-      setTimeout(() => {
-        clearColor();
-      }, 300);
+       playerTimeout();
     }
   }
 });
@@ -214,9 +210,7 @@ bottomLeft.addEventListener('click', (event) => {
     check();
     three();
     if(!win) {
-      setTimeout(() => {
-        clearColor();
-      }, 300);
+    playerTimeout();
     }
   }
 });
@@ -227,9 +221,7 @@ bottomRight.addEventListener('click', (event) => {
     check();
     four();
     if(!win) {
-      setTimeout(() => {
-        clearColor();
-      }, 300);
+        playerTimeout();
     }
   }
 });
@@ -238,6 +230,12 @@ bottomRight.addEventListener('click', (event) => {
 
  /*------------------------------------- function to check if the array of the computer matches the array the player has inputted and increment the count*/
 
+
+
+function check() {
+    playerCount++;
+            /*-------------Assigns variables to see if the player and computer sequence match*/
+
   let playerSeqMatch =
    playerSequence[playerCount - 1] === sequence[playerCount - 1];
     good = true;
@@ -245,12 +243,6 @@ bottomRight.addEventListener('click', (event) => {
     let playerSeqNotMatch = 
     playerSequence[playerCount - 1] !== sequence[playerCount - 1];
     good = false;
-
-
-
-function check() {
-    playerCount++;
-            /*-------------Assigns variables to see if the player and computer sequence match*/
 
 
     /*-------------Assigns the boolean "good" which reacts to whether the sequence of the player and computer match and incorporates the strict rule*/
@@ -288,7 +280,8 @@ function check() {
    /*-------------Assigns the rule that will apply if strict is off and the sequence does not match*/  
   if (playerSeqNotMatch && Strict == false) {
         $(".pad").addClass('disabled');
-        turn.innerhtml ="Try again!";
+        turn--;
+        turnCounter.innerhtml ="Try again!";
         offNoise;
         flashTimeout();
         setTimeout(function() {
@@ -305,18 +298,20 @@ function check() {
     
   if (playerSeqMatch) {
     turn++;
-   sequence = [];
-    compTurn = true;
-    flash = 0;
     good=true;
-    counter();
-    intervalId = setInterval(turn, 800);}
-    
+    randomNumber();
+            $(".pad").addClass('disabled');
+            turnCounter.innerHTML(counter());
+            setTimeout(gamePlay, 500);
+        }
+
 }
+
+
 
  /*-------------Criteria for the game to be won and what occurs*/
 
-if (playerCount === 20 && playerSeqMatch) {
+if (playerCount == 20 && playerSeqMatch) {
         clearInterval(playInterval);
         winGame();
 }
