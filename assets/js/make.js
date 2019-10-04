@@ -159,8 +159,7 @@ function playerTimeout() {
 }
 /*------------------------------------------------------- Pairing color change and audio for each of the four pads*/
 function one() {
-     
-    topLeft.css("opacity=1");
+      topLeft.css("opacity=1");
     playerTimeout();
     $("#clip1").play();
 }
@@ -272,7 +271,7 @@ function check() {
       checkStrict();
       counter();}, 3000);}
  
- /*-------------Assigns the rule that will apply if strict is on*/
+ /*-------------Assigns the rule that will apply if strict is on and the sequence does not match*/
 
       
     if (Strict == true && playerSeqNotMatch) setTimeout(function() {
@@ -286,8 +285,21 @@ function check() {
         good = true;
       }, 800);
 
-    
- 
+   /*-------------Assigns the rule that will apply if strict is off and the sequence does not match*/  
+  if (playerSeqNotMatch && Strict == false) {
+        $(".pad").addClass('disabled');
+        turn.innerhtml ="Try again!";
+        offNoise;
+        flashTimeout();
+        setTimeout(function() {
+            clearColor();
+            
+            setTimeout(function() {
+               turn.innerhtml =counter();
+                setTimeout(gamePlay, 500);
+            }, 600);
+        }, 600);
+    }
   
    /*-------------Assigns the rule that will apply if the sequence of the player and computer match*/
     
