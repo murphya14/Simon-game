@@ -1,6 +1,6 @@
 let order = [];
 let sequence = [];
-let playerSequence = []
+let playerSequence = [];
 let flash;
 let turn;
 let good;
@@ -20,7 +20,6 @@ let playerCount;
 let allowStart;
 let randomNumber;
 let randomNum;
-
 
 const turnCounter = document.querySelector("#counter");
 const topLeft = document.querySelector("#one");
@@ -59,7 +58,7 @@ function flashColor() {
       /*----------------------------------------Removal of flash */
  
  function clearColor(){
-       $(".pad").removeClass('begin-game-pads');
+       $(".pad").removeClass("begin-game-pads");
        }
   
   /*----------------------------------------The game cannot start before power has been turned on */
@@ -67,7 +66,7 @@ function flashColor() {
 let allowStart = startButton.onclick = () => {
         $("#start").addClass("begin-game-start");
         clearColor();
-        setTimeout(initializeGame(), 3000);
+        initializeGame();
         };
  /*--------------------------------------------------------------------------------- What happens when start is clicked(after on has been clicked) */
 
@@ -103,11 +102,9 @@ function initializeGame() {
     turn = 0;
     $(".pad").addClass('disabled');
     randomNumber();
-    gamePlay();
     intervalId = setInterval(turn, 800);
     gamePlay();
-    checkStrict();
-    check();
+
 }
 
 
@@ -129,7 +126,7 @@ function gamePlay() {
     turn++;
     playerCount = 0;
     computerCount = 0;
-    sequence = [];
+    playerSequence = [];
     playInterval = setInterval(function() {
         switch (sequence[computerCount]) {
             case 1:
@@ -154,6 +151,91 @@ function gamePlay() {
         computerCount++;
     }, 800);
 }
+/*----------------------------Changes visuals after the pad has been clicked*/
+function playerTimeout() {
+    playTimeout = setTimeout(function() {
+       clearColor();
+    }, 400);
+}
+/*------------------------------------------------------- Pairing color change and audio for each of the four pads*/
+function one() {
+     
+    topLeft.css("opacity=1");
+    playerTimeout();
+    soundGenerate('clip1');
+}
+
+function two() {
+topRight.css("opacity=1");
+    playerTimeout();
+    soundGenerate('clip2');
+}
+function three() {
+    bottomLeft.css("opacity=1");
+    playerTimeout();
+    soundGenerate('clip3');
+}
+function four() {
+bottomRight.css("opacity=1");
+    playerTimeout();
+    soundGenerate('clip4');
+}
+
+/*-------------------------------------If pad is clicked, the player sequence is created.-*/
+
+topLeft.addEventListener('click', (event) => {
+  if (on) {
+    playerSequence.push(1);
+    check();
+    one();
+    if(!win) {
+         setTimeout(() => {
+        clearColor();
+      }, 300);
+    }
+  }
+});
+
+topRight.addEventListener('click', (event) => {
+  if (on) {
+    playerSequence.push(2);
+    check();
+    two();
+    if(!win) {
+      setTimeout(() => {
+        clearColor();
+      }, 300);
+    }
+  }
+});
+
+bottomLeft.addEventListener('click', (event) => {
+  if (on) {
+    playerSequence.push(3);
+    check();
+    three();
+    if(!win) {
+      setTimeout(() => {
+        clearColor();
+      }, 300);
+    }
+  }
+});
+
+bottomRight.addEventListener('click', (event) => {
+  if (on) {
+    playerSequence.push(4);
+    check();
+    four();
+    if(!win) {
+      setTimeout(() => {
+        clearColor();
+      }, 300);
+    }
+  }
+});
+
+
 
  /*------------------------------------- function to check if the array of the computer matches the array the player has inputted and increment the count*/
 
@@ -164,6 +246,7 @@ function gamePlay() {
     let playerSeqNotMatch = 
     playerSequence[playerCount - 1] !== sequence[playerCount - 1];
     good = false;
+
 
 
 function check() {
@@ -199,7 +282,7 @@ function check() {
       else setTimeout(function()  {
         compTurn = true;
         flash = 0;
-        order = [];
+        sequence = [];
         good = true;
       }, 800);
 
@@ -210,7 +293,7 @@ function check() {
     
   if (playerSeqMatch) {
     turn++;
-    order = [];
+   sequence = [];
     compTurn = true;
     flash = 0;
     good=true;
@@ -254,44 +337,6 @@ function counter (){
     document.getElementById("counter").innerHTML = newVal;
 }
 
-
-
-/*------------------------------------------------------- Pairing color change and audio for each of the four pads*/
-function one() {
-  if (noise) {
-    let audio = document.getElementById("clip1");
-    audio.play();
-  }
-  noise = true;
-  one.css("opacity=1");
-}
-
-function two() {
-  if (noise) {
-    let audio = document.getElementById("clip2");
-    audio.play();
-  }
-  noise = true;
-  two.css("opacity=1");
-}
-
-function three() {
-  if (noise) {
-    let audio = document.getElementById("clip3");
-    audio.play();
-  }
-  noise = true;
-  three.css("opacity=1");
-}
-
-function four() {
-  if (noise) {
-    let audio = document.getElementById("clip4");
-    audio.play();
-  }
-  noise = true;
-  four.css("opacity=1");
-}
 
 /*---------------------------This removes the flash of the pads after 500 milliseconds */
 
