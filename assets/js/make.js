@@ -162,23 +162,23 @@ function one() {
      
     topLeft.css("opacity=1");
     playerTimeout();
-    soundGenerate('clip1');
+    $("#clip1").play();
 }
 
 function two() {
 topRight.css("opacity=1");
     playerTimeout();
-    soundGenerate('clip2');
+    $("#clip2").play();
 }
 function three() {
     bottomLeft.css("opacity=1");
     playerTimeout();
-    soundGenerate('clip3');
+    $("#clip3").play();
 }
 function four() {
 bottomRight.css("opacity=1");
     playerTimeout();
-    soundGenerate('clip4');
+    $("#clip4").play();
 }
 
 /*-------------------------------------If pad is clicked, the player sequence is created.-*/
