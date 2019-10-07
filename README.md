@@ -1,59 +1,56 @@
-# Simon Game
+<h1 align="center">Simon Game</h1>
 
+<div align="center">
 https://github.com/murphya14/Simon-game.git
+</div>
+
+<h1 align="center">
+<img src="assets/css/images/simon-game.jpg">
+</h1>
 
 
-
-
-
-This is an Interactive Frontend website for an engaging memory game, The Simon Game.
-The purpose of this website is to provide a challeging game that gives an energetic User Interface and captures the attention of the player.
-This game has stood the test of time and has been a popular choice for over 40 years!
+This is an Interactive Frontend website for an engaging memory game; *The Simon Game*.<br>
+The purpose of this website is to provide a challenging game that allows for an energetic User Interface and captures the attention of the player.
+This game has stood the test of time and has been a popular choice for over **40 years!**
 
 
 This is a game that appeals to __all ages__. There is the
-option of a more challenging game by using the __Strict Mode__ setting.
-The aim of this website is to provide an energetic game that is pleasing visually and audibly.
+option of a more challenging game by using the __Strict Mode__ setting which allows the game to cater to all levels.<br>
+The aim of this website is to provide an energetic game that is pleasing both visually and audibly.
 
-This is a B2C website which triggers emotive response through
-testimonials, images, video clips and ease of contact in order to create customers.
-Pricing is conveyed clearly with a clear and simple method to contact the Business directly. In addition
-to this, there is an offer of a free consultation for the most expensive
-package which is the tailored programs. This offers an incentive for potential customers.
+[**View Simon Game website here!**](https://murphya14.github.io/Simon-game/)
 
-## UX
 
-The purpose of this website is mainly to attract new customers and make them aware of the current offer (Free Consultation for the Personal Training Package.)
-It is a source of information for current customers as it provides social media
-links, a group fitness timetable, details on classes and a video of the classes.
-Customers can find out more about the founders background as well as what's involved in Personal Training.
-They have the ability to contact the Business and can tick the box to be sent any customer offers.
-The content is laid out to allow the customer navigate easily to
-find the information which they require. This includes a 'back-to-top' button and prompting links.
+## UX Design
+
+__Purpose:__<br>
+The purpose of this website is to provide a challenging and fun game for all users.
+Clear instructions are provided to make the users aware of the how the game is run.
 
 __The target customer has the following qualities:__
-* Health orientated/ Looking to establish fitness goals
-* Has disposable income
-* Wants to be part of a community
+* Looking for a challenge
+* Wants a game that is interactive (both visually and audibly.)
+* Suitable for ages 3+
 
 __The goal for visitors to the site, created the following brainstorm for the
 User story:__
 
-1. As a visitor to the site, I want to be able to navigate to the information required easily.
-2. As a potential client, I want to understand more about the founders education, methods and philosophy.
-3. As a potential client, I want to explore the available services, understand what's included in these services and receive testimonials/images/videos relaying feedback on the service provided.
-4. As a potential client, I want to have deals and offers highlighted which clearly outline the incentive to click on the link provided.
-5. As a potential/current client, I want to easily be able to contact the service provider.
-6. As a potential/current client, I want easy access to all social media.
-7. As a potential/current client, I want easy access to timetables to see if they are viable for my time schedule.
-8. As a potential/current client, I want to be made aware of pricing.
+- #### As a player, I would like to see:
+   - a striking design that is visually stimulating and provides an incentive to play the game.
+   - I want to be able to access information so I can understand more about the game.
+   - I want to be able to control the power button so I can experience the interactive nature of the game.
+    - I want to be able to control the start button so as to begin when I am ready.
+    - I want to be able to set a challenge level.
+     - I want to be able to get instant feedback on whether I have lost/game over or gone ahead to the next level/win.
 
-__Wireframe Mock-ups__
-* [Home](https://github.com/murphya14/Fitness-website/blob/master/wireframe/index.html.jpg)
-* [About](https://github.com/murphya14/Fitness-website/blob/master/wireframe/about.html.jpg)
-* [Personal Training](https://github.com/murphya14/Fitness-website/blob/master/wireframe/personal-training.html.jpg)
-* [Group Training](https://github.com/murphya14/Fitness-website/blob/master/wireframe/group-training.html.jpg)
-* [Get in Touch](https://github.com/murphya14/Fitness-website/blob/master/wireframe/get_in_touch.html.jpg)
+Wireframe Mock-ups using [Balsamiq](https://balsamiq.com/)
+* [Main Desktop Display](assets/css/images/main-wireframe-desktop.pdf)
+* [Information modal Desktop Display](/assets/css/images/modal-wireframe-desktop.pdf)
+* [Main Tablet Display](/assets/css/images/main-wireframe-tablet.pdf)
+* [Information modal Tablet Display](/assets/css/images/modal-wireframe-desktop.pdf)
+* [Main Mobile Display](/assets/css/images/main-wireframe-mobile.pdf)
+* [Information modal Mobile Display](/assets/css/images/modal-wireframe-mobile.pdf)
+
 
 ## Features
 ### Existing Features
@@ -113,13 +110,12 @@ which is used to create a healthy vibrancy to the website.
 
 
 ### Features to implement in the Future
-* Login area for current customers
-* Blog created by the fitness expert
-* GDPR Compliance
-* A follow up message that thanks the customer for contacting the business.
-* An option of languages to increase the market potential
-* A functional calender so customers can book in sessions
-* Potential to create an App for the online customers
+* A range of levels including rotation of the pads to tailor for more abilities.
+* Prompting modals that appear subtly as you hover over buttons to inform the player as they go.
+* An optional trial game to allow new players to test it out before commiting to a game.
+* A follow up message that challenges the player to another game.
+* A functional calender keeping track of the players score over the course of time. This prompts the player to competively beat their previous scores.
+
 
 ## Technologies Used
 * __HTML and CSS:__
