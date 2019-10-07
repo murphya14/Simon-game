@@ -311,6 +311,7 @@ function check() {
 if (playerCount == 20 && playerSeqMatch) {
         clearInterval(playInterval);
         winGame();
+};
 }
  /*-------------------------------------Running the check function through when the pads have been clicked by the player*/
 
@@ -320,9 +321,10 @@ if (playerCount == 20 && playerSeqMatch) {
 
 
 
-function checkStrict() { $(".custom-control").on("click", function() {
+function checkStrict() {strictButton.on("click", function() {
       Strict = true
-    });
+ });
+  };
 
 
 /*---------------------------This removes the flash of the pads after 500 milliseconds */
