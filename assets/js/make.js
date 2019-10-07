@@ -14,11 +14,11 @@ let offNoise = new Audio('');
 let winNoise = new Audio('');
 let strictNoise = new Audio('');
 let playInterval;
-let playTimeout; 
+let playTimeout;
 let computerCount;
 let playerCount;
 let allowStart;
-let randomNumber;
+
 
 
 const turnCounter = document.querySelector("#counter");
@@ -48,19 +48,19 @@ $(".close, .popup-overlay").on("click", function() {
 
 
   /*--------------------------------------------------------------------------------- What happens when Power is clicked */
-  
+
     /*----------------------------------------Flash at start of the game */
 function flashColor() {
   $(".pad").addClass('begin-game-pads');
- 
+
   }
-  
+
       /*----------------------------------------Removal of flash */
- 
+
  function clearColor(){
        $(".pad").removeClass("begin-game-pads");
        }
-  
+
   /*----------------------------------------The game cannot start before power has been turned on */
 
 let allowStart = startButton.onclick = () => {
@@ -81,19 +81,19 @@ else{
 }
 
 
-  
+
     /*----------------------------------------Power is clicked*/
-    
+
 $("#on").click(function() {
        window.on ==true;
       $("#on").addClass("begin-game-start");
       flashColor();
       turnCounter.innerHTML = "Score";
-     
+
 });
 
-/*----------------------------------------Initialize game outs everything back to default settings */   
-    
+/*----------------------------------------Initialize game outs everything back to default settings */
+
 function initializeGame() {
     clearInterval(playInterval);
     clearColor();
@@ -108,20 +108,21 @@ function initializeGame() {
 }
 
 
-/*----------------------------------------Pushes a number between 1-4 randomly into the sequence array */       
-function randomNumber() {
-      randomNumber = Math.ceil(Math.random() * 4);
+/*----------------------------------------Pushes a number between 1-4 randomly into the sequence array */
+function nextSequence() {
+    var randomNumber = Math.ceil(Math.random() * 4);
     sequence.push(randomNumber);
-    console.log(sequence);
+    gamePlay(sequence[sequence.length - 1]);
+    playerSequence=[];
 }
-    
-/*----------------------------------------This is the computers turn to generate a sequence. It sets the computer and player to 0. There is an array for the
-player sequence. The turn increment sets the array, playerCount and computerCount back to 0 for the next count. The player interval is a switch that checks the sequence in the array. Each element of the sequence produces a flash and associated sound. 
-The value of the ComputerCount determines how many times this will be run. Once the sequence matches the computerCount, the playInterval will stop which allows the player to start clicking. 
-The computerCount is then incremented by 1.*/      
-    
 
-    
+/*----------------------------------------This is the computers turn to generate a sequence. It sets the computer and player to 0. There is an array for the
+player sequence. The turn increment sets the array, playerCount and computerCount back to 0 for the next count. The player interval is a switch that checks the sequence in the array. Each element of the sequence produces a flash and associated sound.
+The value of the ComputerCount determines how many times this will be run. Once the sequence matches the computerCount, the playInterval will stop which allows the player to start clicking.
+The computerCount is then incremented by 1.*/
+
+
+
 function gamePlay() {
     turn++;
     sequence=[];
@@ -238,8 +239,8 @@ function check() {
   let playerSeqMatch =
    playerSequence[playerCount - 1] === sequence[playerCount - 1];
     good = true;
-    
-    let playerSeqNotMatch = 
+
+    let playerSeqNotMatch =
     playerSequence[playerCount - 1] !== sequence[playerCount - 1];
     good = false;
 
@@ -252,7 +253,7 @@ function check() {
       turnCounter.innerHTML = turn;
       clearColor();
       checkStrict();}, 3000);}
-      
+
      if(good==true){
     flashColor();
     turnCounter.innerHTML = "WELL DONE!";
@@ -261,14 +262,14 @@ function check() {
       clearColor();
       checkStrict();
       counter();}, 3000);}
- 
+
  /*-------------Assigns the rule that will apply if strict is on and the sequence does not match*/
 
-      
+
     if (Strict == true && playerSeqNotMatch) setTimeout(function() {
         showGameOver();
-      }, 800); 
-      
+      }, 800);
+
       else setTimeout(function()  {
         compTurn = true;
         flash = 0;
@@ -276,7 +277,7 @@ function check() {
         good = true;
       }, 800);
 
-   /*-------------Assigns the rule that will apply if strict is off and the sequence does not match*/  
+   /*-------------Assigns the rule that will apply if strict is off and the sequence does not match*/
   if (playerSeqNotMatch && Strict == false) {
         $(".pad").addClass('disabled');
         turn--;
@@ -285,20 +286,20 @@ function check() {
         flashTimeout();
         setTimeout(function() {
             clearColor();
-            
+
             setTimeout(function() {
                turn.innerhtml =counter();
                 setTimeout(gamePlay, 500);
             }, 600);
         }, 600);
     }
-  
+
    /*-------------Assigns the rule that will apply if the sequence of the player and computer match*/
-    
+
   if (playerSeqMatch) {
     turn++;
     good=true;
-    randomNumber();
+    nextSequence();
             $(".pad").addClass('disabled');
             turnCounter.innerHTML(counter());
             setTimeout(gamePlay, 500);
@@ -315,9 +316,9 @@ if (playerCount == 20 && playerSeqMatch) {
         winGame();
 }
  /*-------------------------------------Running the check function through when the pads have been clicked by the player*/
- 
- 
- 
+
+
+
  /*--------------------------------------------------------------------------------- Strict button setting */
 
 
@@ -329,14 +330,14 @@ function checkStrict() {
       Strict = false;
     }
   }
-  
+
 
  /*----------------------------------------------------------------------------------COUNTER: Sets the value of the new value as it is incremented by 1*/
- 
+
 function counter (){
     var currentVal = document.getElementById("counter");
     var newVal = 0;
-    
+
     if (currentVal<20){
          newval = currentVal + 1;
     }
