@@ -122,32 +122,39 @@ player sequence. The turn increment sets the array, playerCount and computerCoun
 The value of the ComputerCount determines how many times this will be run. Once the sequence matches the computerCount, the playInterval will stop which allows the player to start clicking.
 The computerCount is then incremented by 1.*/
 
+function changeLevel() {
+    turn++;
+    turnCounter.innerHTML=turn++
 
+};
 
 function gamePlay() {
-    turn++;
-    nextSequence();
-    sequence=[];
-    playerSequence = [];
+    playerCount = 0;
+    computerCount = 0;
+    changeLevel();
+    playerSequence=[];
     playInterval = setInterval(function() {
         switch (sequence[computerCount]) {
             case 1:
-               one();
+                 topLeft.css("opacity=1");
+                $("#clip1").play();
                 break;
             case 2:
-                two();
+                topRight.css("opacity=1");
+                $("#clip2").play();
                 break;
             case 3:
-                three();
+                bottomLeft.css("opacity=1");
+                $("#clip3").play();
                 break;
             case 4:
-                four();
+                bottomRight.css("opacity=1");
+                $("#clip4").play();
+
                 break;
-            default:
-                break;
+
         }
-        check(playerSequence)
-        if (sequence.length === computerCount) {
+     if (sequence.length === computerCount) {
             clearInterval(playInterval);
             $(".pad").removeClass('disabled');
         }
@@ -199,26 +206,28 @@ bottomRight.css("opacity=1");
 
 
 //This converts the clicks into numbers and pushes it to a new array.
+
 $(".pad").click(function(){
+    clearColor();
         let padID = $(this).attr("id");
         if (padID == one)
             {
-                sequencePlayer.push(1);
+                playerSequence.push(1);
                 showSequence(1);
             };
 
             if (padID == two)
-                {sequencePlayer.push(2);
+                {playerSequence.push(2);
                 showSequence(2);
                }
 
              if (padID == three)
-                {sequencePlayer.push(3);
+                {playerSequence.push(3);
                 showSequence(3);
                 }
 
               if (padID == four)
-                {sequencePlayer.push(4);
+                {playerSequence.push(4);
                 showSequence(4);
                }
 
@@ -320,13 +329,10 @@ if (playerCount == 20 && playerSeqMatch) {
 
 
 
-function checkStrict() { $(.custom-control).on("click", function() {
-        if (.custom-control.checked == true) {
-      Strict = true;
-    } else {
-      Strict = false;
-    }
-  }
+function checkStrict() { $(".custom-control").on("click", function() {
+      Strict = true
+    })
+
 
 
  /*----------------------------------------------------------------------------------COUNTER: Sets the value of the new value as it is incremented by 1*/
