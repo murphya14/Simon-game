@@ -199,24 +199,24 @@ bottomRight.css("opacity=1");
 
 //This converts the clicks into numbers and pushes it to a new array.
 $(".pad").click(function(){
-        var playerClicked= $(this).attr("id");
-        switch(playerClicked){
-            case "one":
+        let padID = $(this).attr("id");
+        if (padID == one)
+            {
                 sequencePlayer.push(1);
                 showSequence(1);
-                break;
+            };
 
-            case "two":
+            if (padID == two)
                 sequencePlayer.push(2);
                 showSequence(2);
                 break;
 
-            case "three":
+             if (padID == three)
                 sequencePlayer.push(3);
                 showSequence(3);
                 break;
 
-            case "four":
+              if (padID == four)
                 sequencePlayer.push(4);
                 showSequence(4);
                 break;
@@ -320,8 +320,8 @@ if (playerCount == 20 && playerSeqMatch) {
 
 
 
-function checkStrict() {
-    if ($("#strict").is(":checked")){
+function checkStrict() { $(.custom-control).on("click", function() {
+        if (.custom-control.checked == true) {
       Strict = true;
     } else {
       Strict = false;
