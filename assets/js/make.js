@@ -272,42 +272,33 @@ function check() {
  /*-------------Assigns the rule that will apply if strict is on and the sequence does not match*/
 
 
-    if (Strict == true && playerSeqNotMatch) setTimeout(function() {
-        showGameOver();
-      }, 800);
+    if (Strict == true && playerSeqNotMatch)
+    {
+        setTimeout(showGameOver(), 800);
 
-      else setTimeout(function()  {
-        compTurn = true;
-        flash = 0;
-        sequence = [];
-        good = true;
-      }, 800);
+    }
+
 
    /*-------------Assigns the rule that will apply if strict is off and the sequence does not match*/
-  if (playerSeqNotMatch && Strict == false) {
+  if (playerSeqNotMatch && !Strict) {
         $(".pad").addClass('disabled');
         turn--;
         turnCounter.innerhtml ="Try again!";
         offNoise;
         flashTimeout();
         setTimeout(function() {
-            clearColor();
-
-            setTimeout(function() {
-               turn.innerhtml =counter();
-                setTimeout(gamePlay, 500);
-            }, 600);
-        }, 600);
+                  turnCounter.innerhtml =playerCount}, 300);
+        setTimeout(gamePlay, 500);
     }
 
-   /*-------------Assigns the rule that will apply if the sequence of the player and computer match*/
+   /*-------------Assigns the rule that will apply if the sequence of the player and computer match. The players score is displayed in the scoreboard
+   before being timed out to the next round.*/
 
   if (playerSeqMatch) {
-    turn++;
-    good=true;
-    nextSequence();
-            $(".pad").addClass('disabled');
-            turnCounter.innerHTML(turn);
+      if (playerSequence.length === turn) {
+      nextSequence();
+         $(".pad").addClass('disabled');
+            turnCounter.innerHTML=playerCount;
             setTimeout(gamePlay, 500);
         }
 
@@ -315,7 +306,7 @@ function check() {
 
 
 
- /*-------------Criteria for the game to be won and what occurs*/
+ /*-------------Criteria for the game to be won and what occurs. This also stops the playInterval.*/
 
 if (playerCount == 20 && playerSeqMatch) {
         clearInterval(playInterval);
@@ -331,21 +322,7 @@ if (playerCount == 20 && playerSeqMatch) {
 
 function checkStrict() { $(".custom-control").on("click", function() {
       Strict = true
-    })
-
-
-
- /*----------------------------------------------------------------------------------COUNTER: Sets the value of the new value as it is incremented by 1*/
-
-function counter (){
-    var currentVal = document.getElementById("counter");
-    var newVal = 0;
-
-    if (currentVal<20){
-         newval = currentVal + 1;
-    }
-    document.getElementById("counter").innerHTML = newVal;
-}
+    });
 
 
 /*---------------------------This removes the flash of the pads after 500 milliseconds */
