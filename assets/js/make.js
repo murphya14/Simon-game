@@ -67,7 +67,7 @@ let allowStart = startButton.onclick = () => {
         $("#start").addClass("begin-game-start");
         clearColor();
         initializeGame();
-        };
+        }
  /*--------------------------------------------------------------------------------- What happens when start is clicked(after on has been clicked) */
 
 
@@ -112,7 +112,7 @@ function initializeGame() {
 function nextSequence() {
     var randomNumber = Math.ceil(Math.random() * 4);
     sequence.push(randomNumber);
-    gamePlay(sequence[sequence.length - 1]);
+    playInterval(sequence[sequence.length - 1]);
     playerSequence=[];
 }
 
@@ -125,6 +125,7 @@ The computerCount is then incremented by 1.*/
 
 function gamePlay() {
     turn++;
+    nextSequence();
     sequence=[];
     playerSequence = [];
     playInterval = setInterval(function() {
@@ -144,89 +145,85 @@ function gamePlay() {
             default:
                 break;
         }
+        check(playerSequence)
         if (sequence.length === computerCount) {
             clearInterval(playInterval);
             $(".pad").removeClass('disabled');
         }
         computerCount++;
     }, 800);
+
 }
 /*----------------------------Changes visuals after the pad has been clicked*/
 function playerTimeout() {
     playTimeout = setTimeout(function() {
-       clearColor();
+        clearColor();
     }, 400);
 }
 /*------------------------------------------------------- Pairing color change and audio for each of the four pads*/
-function one() {
-      topLeft.css("opacity=1");
-    playerTimeout();
-    $("#clip1").play();
-}
+function showSequence(element) {
 
-function two() {
+ switch (element){
+    case 1:
+     topLeft.css("opacity=1");
+     $("#clip1").play();
+
+   break;
+
+case 2:
 topRight.css("opacity=1");
-    playerTimeout();
-    $("#clip2").play();
-}
-function three() {
+        $("#clip2").play();
+
+       break;
+
+case 3:
     bottomLeft.css("opacity=1");
-    playerTimeout();
+
     $("#clip3").play();
-}
-function four() {
+
+   break;
+
+case 4:
 bottomRight.css("opacity=1");
-    playerTimeout();
+
     $("#clip4").play();
-}
 
-/*-------------------------------------If pad is clicked, the player sequence is created.-*/
+    break;
 
-topLeft.addEventListener('click', (event) => {
-  if (on) {
-    playerSequence.push(1);
-    check();
-    one();
-    if(!win) {
-       playerTimeout();
-    }
-  }
-});
+    default:
+    text = "No value found";
 
-topRight.addEventListener('click', (event) => {
-  if (on) {
-    playerSequence.push(2);
-    check();
-    two();
-    if(!win) {
-       playerTimeout();
-    }
-  }
-});
-
-bottomLeft.addEventListener('click', (event) => {
-  if (on) {
-    playerSequence.push(3);
-    check();
-    three();
-    if(!win) {
-    playerTimeout();
-    }
-  }
-});
-
-bottomRight.addEventListener('click', (event) => {
-  if (on) {
-    playerSequence.push(4);
-    check();
-    four();
-    if(!win) {
-        playerTimeout();
-    }
-  }
-});
+ }
+};
 
 
+//This converts the clicks into numbers and pushes it to a new array.
+$(".pad").click(function(){
+        var playerClicked= $(this).attr("id");
+        switch(playerClicked){
+            case "one":
+                sequencePlayer.push(1);
+                showSequence(1);
+                break;
+
+            case "two":
+                sequencePlayer.push(2);
+                showSequence(2);
+                break;
+
+            case "three":
+                sequencePlayer.push(3);
+                showSequence(3);
+                break;
+
+            case "four":
+                sequencePlayer.push(4);
+                showSequence(4);
+                break;
+            }
+        check();
+
+    });
 
  /*------------------------------------- function to check if the array of the computer matches the array the player has inputted and increment the count*/
 
@@ -301,7 +298,7 @@ function check() {
     good=true;
     nextSequence();
             $(".pad").addClass('disabled');
-            turnCounter.innerHTML(counter());
+            turnCounter.innerHTML(turn);
             setTimeout(gamePlay, 500);
         }
 
