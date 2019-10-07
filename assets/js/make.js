@@ -103,6 +103,7 @@ function initializeGame() {
     turn = 0;
     $(".pad").addClass('disabled');
     playerTimeout();
+    nextSequence();
     gamePlay();
 
 }
@@ -207,22 +208,21 @@ $(".pad").click(function(){
             };
 
             if (padID == two)
-                sequencePlayer.push(2);
+                {sequencePlayer.push(2);
                 showSequence(2);
-                break;
+               }
 
              if (padID == three)
-                sequencePlayer.push(3);
+                {sequencePlayer.push(3);
                 showSequence(3);
-                break;
+                }
 
               if (padID == four)
-                sequencePlayer.push(4);
+                {sequencePlayer.push(4);
                 showSequence(4);
-                break;
-            }
-        check();
+               }
 
+        check()
     });
 
  /*------------------------------------- function to check if the array of the computer matches the array the player has inputted and increment the count*/
