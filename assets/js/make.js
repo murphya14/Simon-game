@@ -174,26 +174,25 @@ function showSequence(element) {
 
  switch (element){
     case 1:
-     topLeft.css("opacity=1");
+     $("#one").css("opacity","1");
      $("#clip1").play();
 
    break;
 
 case 2:
-topRight.css("opacity=1");
+$("#two").css("opacity","1");
         $("#clip2").play();
 
        break;
 
 case 3:
-    bottomLeft.css("opacity=1");
-
+$("#three").css("opacity","1");
     $("#clip3").play();
 
    break;
 
 case 4:
-bottomRight.css("opacity=1");
+$("#four").css("opacity","1");
 
     $("#clip4").play();
 
@@ -259,7 +258,7 @@ function check() {
     setTimeout(function(){
       turnCounter.innerHTML = turn;
       clearColor();
-      checkStrict();}, 3000);}
+      }, 3000);}
 
      if(good==true){
     flashColor();
