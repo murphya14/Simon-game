@@ -8,18 +8,18 @@ https://github.com/murphya14/Simon-game.git
 <img src="assets/css/images/simon-game.jpg">
 </h1>
 
-<div class="center">
+<div align="center">
 This is an Interactive Frontend website for an engaging memory game; *The Simon Game*.<br>
 The purpose of this website is to provide a challenging game that allows for an energetic User Interface and captures the attention of the player.
 This game has stood the test of time and has been a popular choice for over **40 years!**
-<div>
+
 
 This is a game that appeals to __all ages__. There is the
 option of a more challenging game by using the __Strict Mode__ setting which allows the game to cater to all levels.<br>
 The aim of this website is to provide an energetic game that is pleasing both visually and audibly.
 
 [**View Simon Game website here!**](https://murphya14.github.io/Simon-game/)
-
+<div>
 
 ## UX Design
 
@@ -52,7 +52,7 @@ Wireframe Mock-ups using [Balsamiq](https://balsamiq.com/)
 * [Information modal Mobile Display](/assets/css/images/modal-wireframe-mobile.pdf)
 
 
-## Design
+##Design
 The design is a reflection of the original game.
 
 ###Fonts
@@ -133,15 +133,15 @@ This project was written on Cloud9 and gitpod.
 
 *__JQuery:__
 Used to work more efficiently with the DOM.
-[JQuery](https://jquery.com)
+<br>(https://jquery.com)
 
 *__Jasmine__
 A Test Driven Development tool to test JQuery and javaScript.
-[Jasmine](https://jasmine.github.io/)
+<br>(https://jasmine.github.io/)
 
 *__Jasmine__
 Used to allow JQuery be tested using jasmine.
-[Jasmine-JQuery](https://github.com/velesin/jasmine-jquery)
+<br>(https://github.com/velesin/jasmine-jquery)
 
 * __W3C online validators:__
 Online validators were used to check code was valid for both HTML and CSS.

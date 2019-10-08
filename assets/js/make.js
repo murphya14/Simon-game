@@ -113,7 +113,8 @@ function initializeGame() {
 function nextSequence() {
     var randomNumber = Math.ceil(Math.random() * 4);
     sequence.push(randomNumber);
-    playInterval(sequence[sequence.length - 1]);
+    console.log(sequence);
+    showSequence(sequence[sequence.length - 1]);
     playerSequence=[];
 }
 
@@ -124,14 +125,14 @@ The computerCount is then incremented by 1.*/
 
 function changeLevel() {
     turn++;
-    turnCounter.innerHTML=turn++
+    turnCounter.innerHTML=playerCount
 
 };
 
 function gamePlay() {
+    changeLevel();
     playerCount = 0;
     computerCount = 0;
-    changeLevel();
     playerSequence=[];
     playInterval = setInterval(function() {
         switch (sequence[computerCount]) {
@@ -264,10 +265,9 @@ function check() {
     flashColor();
     turnCounter.innerHTML = "WELL DONE!";
     setTimeout(function() {
-      turnCounter.innerHTML = counter();
+      turnCounter.innerHTML = playerCount;
       clearColor();
-      checkStrict();
-      counter();}, 3000);}
+      checkStrict();}, 3000);}
 
  /*-------------Assigns the rule that will apply if strict is on and the sequence does not match*/
 
@@ -321,10 +321,14 @@ if (playerCount == 20 && playerSeqMatch) {
 
 
 
-function checkStrict() {strictButton.on("click", function() {
-      Strict = true
- });
-  };
+strictButton.addEventListener('click', (event) => {
+  if (strictButton.checked == true) {
+    strict = true;
+  } else {
+    strict = false;
+  }
+});
+
 
 
 /*---------------------------This removes the flash of the pads after 500 milliseconds */
