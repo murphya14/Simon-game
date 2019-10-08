@@ -13,6 +13,10 @@ let win;
 let offNoise = new Audio('');
 let winNoise = new Audio('');
 let strictNoise = new Audio('');
+let soundOne = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3');
+let soundTwo = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3');
+let soundThree = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3');
+let soundFour = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3');
 let playInterval;
 let playTimeout;
 let computerCount;
@@ -175,26 +179,26 @@ function showSequence(element) {
  switch (element){
     case 1:
      $("#one").css("opacity","1");
-     $("#clip1").play();
+    soundOne.play();
 
    break;
 
 case 2:
 $("#two").css("opacity","1");
-        $("#clip2").play();
+        soundTwo.play();
 
        break;
 
 case 3:
 $("#three").css("opacity","1");
-    $("#clip3").play();
+    soundThree.play();
 
    break;
 
 case 4:
 $("#four").css("opacity","1");
 
-    $("#clip4").play();
+    soundFour.play();
 
     break;
 
