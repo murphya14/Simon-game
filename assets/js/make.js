@@ -217,21 +217,25 @@ $(".pad").click(function(){
         if (padID == one)
             {
                 playerSequence.push(1);
+                soundOne.play()
                 showSequence(1);
             };
 
             if (padID == two)
                 {playerSequence.push(2);
+                soundTwo.play()
                 showSequence(2);
                }
 
              if (padID == three)
                 {playerSequence.push(3);
+                soundThree.play();
                 showSequence(3);
                 }
 
               if (padID == four)
                 {playerSequence.push(4);
+                soundFour.play();
                 showSequence(4);
                }
 

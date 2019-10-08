@@ -39,9 +39,9 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
     position: fixed;
     font-size: 25px;
     text-transform: uppercase;
-    
+
     text-align: center;
-    
+
 }
 
 .sub-heading {
@@ -86,6 +86,7 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
     filter: alpha(opacity=60);
     opacity: 0.6;
+    cursor: pointer;
     /*Opacity changes in JS based on the game being played*/
 }
 
@@ -127,14 +128,14 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
     background-color: #daddeb;
     font-weight: 600;
     border-radius: 25px;
-    
+
     margin: 20px;
     text-align: center;
     cursor: pointer;
 }
 
 .how-to:hover {
-    background-color: #ff0dbf; 
+    background-color: #ff0dbf;
     color: white;
     font-weight: 700;
 }
@@ -216,13 +217,13 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
 .begin-game-pads {opacity:1;}
 
 #counter {
-  
+
   width: 40%;
   text-align: center;
   margin-left:70px;
   color:#F50505;
   border: solid white;
-  
+
 
 }
 /*-----------------------------------slider- using help from https://www.w3schools.com/howto/howto_css_switch.asp*/
@@ -297,7 +298,7 @@ margin-left: 55px;
 
 /*Class for JS*/
 
-.disabled { pointer-events: none; } 
+.disabled { pointer-events: none; }
 
 /*Footers*/
 
