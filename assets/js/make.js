@@ -141,20 +141,20 @@ function gamePlay() {
     playInterval = setInterval(function() {
         switch (sequence[computerCount]) {
             case 1:
-                 topLeft.css("opacity=1");
-                $("#clip1").play();
+                 $("one").css("opacity=1");
+                soundOne.play();
                 break;
             case 2:
-                topRight.css("opacity=1");
-                $("#clip2").play();
+                $("two").css("opacity=1");
+                soundTwo.play();
                 break;
             case 3:
-                bottomLeft.css("opacity=1");
-                $("#clip3").play();
+                $("three").css("opacity=1");
+                soundThree.play();
                 break;
             case 4:
-                bottomRight.css("opacity=1");
-                $("#clip4").play();
+                $("four").css("opacity=1");
+                soundFour.play();
 
                 break;
 
