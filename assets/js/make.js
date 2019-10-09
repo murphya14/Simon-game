@@ -120,6 +120,7 @@ function nextSequence() {
     sequence.push(randomNumber);
     console.log(sequence);
     showSequence(sequence[sequence.length - 1]);
+    changeLevel();
     playerSequence=[];
 }
 
@@ -133,7 +134,7 @@ function changeLevel() {
     turnCounter.innerHTML=playerCount};
 
 function gamePlay() {
-    changeLevel();
+    turn++;
     playerCount = 0;
     computerCount = 0;
     playerSequence=[];
@@ -181,11 +182,12 @@ function showSequence(element) {
 
  switch (element){
     case 1:
+
         soundOne.play();
      $("#one").addClass("flash");
        setTimeout(function(){
                   $("#one").removeClass("flash");
-              },250)
+              },800)
 
    break;
 
@@ -194,7 +196,7 @@ case 2:
    $("#two").addClass("flash");
        setTimeout(function(){
                   $("#two").removeClass("flash");
-              },250)
+              },800)
        break;
 
 case 3:
@@ -202,7 +204,7 @@ case 3:
   $("#three").addClass("flash");
        setTimeout(function(){
                   $("#three").removeClass("flash");
-              },250)
+              },800)
    break;
 
 case 4:
@@ -210,7 +212,7 @@ case 4:
   $("#four").addClass("flash");
        setTimeout(function(){
                   $("#four").removeClass("flash");
-              },250)
+              },800)
     break;
 
     default:
@@ -226,26 +228,26 @@ $(".pad").click(function(){
     clearTimeout(playTimeout);
     clearColor();
         let padID = $(this).attr("id");
-        if (padID == one)
+        if (padID == "one")
             {
                 playerSequence.push(1);
                 soundOne.play()
                 showSequence(1);
             };
 
-            if (padID == two)
+            if (padID == "two")
                 {playerSequence.push(2);
                 soundTwo.play()
                 showSequence(2);
                }
 
-             if (padID == three)
+             if (padID == "three")
                 {playerSequence.push(3);
                 soundThree.play();
                 showSequence(3);
                 }
 
-              if (padID == four)
+              if (padID == "four")
                 {playerSequence.push(4);
                 soundFour.play();
                 showSequence(4);
@@ -273,7 +275,7 @@ function check() {
 
     /*-------------Assigns the boolean "good" which reacts to whether the sequence of the player and computer match and incorporates the strict rule*/
    if (good == false) {
-    flashColor();
+
     turnCounter.innerHTML = "Nope!";
     setTimeout(function(){
       turnCounter.innerHTML = playerCount;
@@ -281,7 +283,7 @@ function check() {
       }, 3000);}
 
      if(good==true){
-    flashColor();
+
     turnCounter.innerHTML = "WELL DONE!";
     setTimeout(function() {
       turnCounter.innerHTML = playerCount;

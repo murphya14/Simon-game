@@ -91,7 +91,7 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
 }
 
 .flash {
-    filter: brightness(250%);
+    opacity: 1;
 }
 
 .one {
