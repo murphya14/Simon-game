@@ -209,27 +209,32 @@ $(".pad").click(function(){
                 playerSequence.push(1);
                 soundOne.play()
                 showSequence(1);
+                console.log("one")
             };
 
             if (padID == "two")
                 {playerSequence.push(2);
                 soundTwo.play()
                 showSequence(2);
+                console.log("two")
                }
 
              if (padID == "three")
                 {playerSequence.push(3);
                 soundThree.play();
                 showSequence(3);
+                console.log("three")
                 }
 
               if (padID == "four")
                 {playerSequence.push(4);
                 soundFour.play();
                 showSequence(4);
+                console.log("four")
                }
 
         check()
+
     });
 
  /*------------------------------------- function to check if the array of the computer matches the array the player has inputted and increment the count*/
@@ -240,15 +245,14 @@ function check() {
     playerCount++;
             /*-------------Assigns variables to see if the player and computer sequence match*/
 
-  let playerSeqMatch =
-   playerSequence[playerCount - 1] === sequence[playerCount - 1];
-    good = true;
+  if (playerSequence[playerCount - 1] == sequence[playerCount - 1]){
+    good = true
+} else {
+    good = false
+}
 
-    let playerSeqNotMatch =
-    playerSequence[playerCount - 1] !== sequence[playerCount - 1];
-    good = false;
-
-
+console.log(playerSequence)
+console.log(sequence)
     /*-------------Assigns the boolean "good" which reacts to whether the sequence of the player and computer match and incorporates the strict rule*/
    if (good == false) {
 
@@ -258,9 +262,10 @@ function check() {
       clearColor();
       }, 3000);}
 
-     if(good==true){
-
+     if(good == true){
     turnCounter.innerHTML = "WELL DONE!";
+    playerCount++;
+    playInterval;
     setTimeout(function() {
       turnCounter.innerHTML = playerCount;
       clearColor();
@@ -269,15 +274,15 @@ function check() {
  /*-------------Assigns the rule that will apply if strict is on and the sequence does not match*/
 
 
-    if (Strict === true && playerSeqNotMatch)
+    if (strict === true && good==false)
     {
         setTimeout(showGameOver(), 800);
-
+        console.log("strict")
     }
 
 
    /*-------------Assigns the rule that will apply if strict is off and the sequence does not match*/
-  if (playerSeqNotMatch && !Strict) {
+  if (good==false && !strict) {
         $(".pad").addClass('disabled');
         turn--;
         turnCounter.innerhtml ="Try again!";
@@ -286,20 +291,22 @@ function check() {
         setTimeout(function() {
                   turnCounter.innerhtml =playerCount}, 300);
         setTimeout(gamePlay, 500);
+        console.log("Not match and not strict")
     }
 
    /*-------------Assigns the rule that will apply if the sequence of the player and computer match. The players score is displayed in the scoreboard
    before being timed out to the next round.*/
 
-  if (playerSeqMatch) {
+  if (good==true) {
       if (playerSequence.length === turn) {
       nextSequence();
          $(".pad").addClass('disabled');
             turnCounter.innerHTML=playerCount;
             setTimeout(gamePlay, 500);
+            console.log("match")
         }
 
-}
+};
 
 
 
