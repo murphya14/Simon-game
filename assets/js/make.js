@@ -109,6 +109,7 @@ function initializeGame() {
     playerTimeout();
     nextSequence();
     gamePlay();
+    checkStrict();
 
 }
 
@@ -129,9 +130,7 @@ The computerCount is then incremented by 1.*/
 
 function changeLevel() {
     turn++;
-    turnCounter.innerHTML=playerCount
-
-};
+    turnCounter.innerHTML=playerCount};
 
 function gamePlay() {
     changeLevel();
@@ -143,18 +142,22 @@ function gamePlay() {
             case 1:
                  $("one").css("opacity=1");
                 soundOne.play();
+                  playerTimeout();
                 break;
             case 2:
                 $("two").css("opacity=1");
                 soundTwo.play();
+                  playerTimeout();
                 break;
             case 3:
                 $("three").css("opacity=1");
                 soundThree.play();
+                  playerTimeout();
                 break;
             case 4:
                 $("four").css("opacity=1");
                 soundFour.play();
+                  playerTimeout();
 
                 break;
 
@@ -178,28 +181,36 @@ function showSequence(element) {
 
  switch (element){
     case 1:
-     $("#one").css("opacity","1");
-    soundOne.play();
+        soundOne.play();
+     $("#one").addClass("flash");
+       setTimeout(function(){
+                  $("#one").removeClass("flash");
+              },250)
 
    break;
 
 case 2:
-$("#two").css("opacity","1");
         soundTwo.play();
-
+   $("#two").addClass("flash");
+       setTimeout(function(){
+                  $("#two").removeClass("flash");
+              },250)
        break;
 
 case 3:
-$("#three").css("opacity","1");
     soundThree.play();
-
+  $("#three").addClass("flash");
+       setTimeout(function(){
+                  $("#three").removeClass("flash");
+              },250)
    break;
 
 case 4:
-$("#four").css("opacity","1");
-
     soundFour.play();
-
+  $("#four").addClass("flash");
+       setTimeout(function(){
+                  $("#four").removeClass("flash");
+              },250)
     break;
 
     default:
@@ -212,6 +223,7 @@ $("#four").css("opacity","1");
 //This converts the clicks into numbers and pushes it to a new array.
 
 $(".pad").click(function(){
+    clearTimeout(playTimeout);
     clearColor();
         let padID = $(this).attr("id");
         if (padID == one)
@@ -264,7 +276,7 @@ function check() {
     flashColor();
     turnCounter.innerHTML = "Nope!";
     setTimeout(function(){
-      turnCounter.innerHTML = turn;
+      turnCounter.innerHTML = playerCount;
       clearColor();
       }, 3000);}
 
@@ -274,7 +286,7 @@ function check() {
     setTimeout(function() {
       turnCounter.innerHTML = playerCount;
       clearColor();
-      checkStrict();}, 3000);}
+     }, 3000);}
 
  /*-------------Assigns the rule that will apply if strict is on and the sequence does not match*/
 

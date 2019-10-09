@@ -90,7 +90,9 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
     /*Opacity changes in JS based on the game being played*/
 }
 
-
+.flash {
+    filter: brightness(250%);
+}
 
 .one {
     border-top-left-radius: 300px;
