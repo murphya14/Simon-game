@@ -109,8 +109,6 @@ function initializeGame() {
     playerTimeout();
     nextSequence();
     gamePlay();
-    checkStrict();
-
 }
 
 
@@ -138,39 +136,17 @@ function gamePlay() {
     playerCount = 0;
     computerCount = 0;
     playerSequence=[];
-    playInterval = setInterval(function() {
-        switch (sequence[computerCount]) {
-            case 1:
-                 $("one").css("opacity=1");
-                soundOne.play();
-                  playerTimeout();
-                break;
-            case 2:
-                $("two").css("opacity=1");
-                soundTwo.play();
-                  playerTimeout();
-                break;
-            case 3:
-                $("three").css("opacity=1");
-                soundThree.play();
-                  playerTimeout();
-                break;
-            case 4:
-                $("four").css("opacity=1");
-                soundFour.play();
-                  playerTimeout();
-
-                break;
-
-        }
-     if (sequence.length === computerCount) {
-            clearInterval(playInterval);
-            $(".pad").removeClass('disabled');
+    playInterval =
+    setInterval(function() {
+        showSequence();
+    if (sequence.length === computerCount)
+        clearInterval(playInterval); {
+        $(".pad").removeClass('disabled');
         }
         computerCount++;
     }, 800);
-
 }
+
 /*----------------------------Changes visuals after the pad has been clicked*/
 function playerTimeout() {
     playTimeout = setTimeout(function() {
@@ -293,7 +269,7 @@ function check() {
  /*-------------Assigns the rule that will apply if strict is on and the sequence does not match*/
 
 
-    if (Strict == true && playerSeqNotMatch)
+    if (Strict === true && playerSeqNotMatch)
     {
         setTimeout(showGameOver(), 800);
 
