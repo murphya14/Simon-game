@@ -101,9 +101,10 @@ $("#on").click(function() {
 function initializeGame() {
     clearInterval(playInterval);
     clearColor();
-    turnCounter.innerHTML="0";
+    turnCounter.innerHTML=turn;
     sequence = [];
     playerSequence = [];
+    playerCount=0;
     turn = 0;
     $(".pad").addClass('disabled');
     playerTimeout();
@@ -138,7 +139,7 @@ function gamePlay() {
     playerSequence=[];
     playInterval =
     setInterval(function() {
-        showSequence();
+        showSequence(sequence[computerCount]);
     if (sequence.length === computerCount)
         clearInterval(playInterval); {
         $(".pad").removeClass('disabled');
@@ -258,7 +259,7 @@ console.log(sequence)
 
     turnCounter.innerHTML = "Nope!";
     setTimeout(function(){
-      turnCounter.innerHTML = playerCount;
+      turnCounter.innerHTML = turn;
       clearColor();
       }, 3000);}
 
@@ -267,7 +268,7 @@ console.log(sequence)
     playerCount++;
     playInterval;
     setTimeout(function() {
-      turnCounter.innerHTML = playerCount;
+      turnCounter.innerHTML = turn;
       clearColor();
      }, 3000);}
 
