@@ -116,10 +116,7 @@ function nextSequence() {
     var randomNumber = Math.ceil(Math.random() * 4);
     sequence.push(randomNumber);
     console.log(sequence);
-
-
-}
-
+};
 /*----------------------------------------This is the computers turn to generate a sequence. It sets the computer and player to 0. There is an array for the
 player sequence. The turn increment sets the array, playerCount and computerCount back to 0 for the next count. The player interval is a switch that checks the sequence in the array. Each element of the sequence produces a flash and associated sound.
 The value of the ComputerCount determines how many times this will be run. Once the sequence matches the computerCount, the playInterval will stop which allows the player to start clicking.
@@ -200,10 +197,10 @@ case 4:
 
 //This converts the clicks into numbers and pushes it to a new array.
 
-$(".pad").click(function(){
+$(".pad").click(function() {
     clearTimeout(playTimeout);
     clearColor();
-        let padID = $(this).attr("id");
+    let padID = $(this).attr("id");
         if (padID == "one")
             {
                 playerSequence.push(1);
@@ -235,15 +232,14 @@ $(".pad").click(function(){
 
         check();
 
-     });
-      });
+     })
 
  /*------------------------------------- function to check if the array of the computer matches the array the player has inputted and increment the count*/
 
 
 
 function check() {
-
+playerCount++;
             /*-------------Assigns variables to see if the player and computer sequence match*/
 
   if (playerSequence[playerCount - 1] == sequence[playerCount - 1]){
@@ -255,16 +251,16 @@ function check() {
 console.log(playerSequence)
 console.log(sequence)
     /*-------------Assigns the boolean "good" which reacts to whether the sequence of the player and computer match and incorporates the strict rule*/
-   if (good == false) {
+   if (good == false && !strict) {
        turn--;
  $(".pad").addClass('disabled');
     turnCounter.innerHTML = "Nope!";
     setTimeout(function(){
-      turnCounter.innerHTML = turn;
+    turnCounter.innerHTML = turn;
        $(".pad").removeClass('disabled');
       clearColor();
       }, 3000);
-    setTimeout(gamePlay());}
+    setTimeout(gamePlay(), 300);}
 
 
 
@@ -273,6 +269,7 @@ console.log(sequence)
 
     if (strict === true && good==false)
     {
+        $(".pad").addClass('disabled');
         setTimeout(showGameOver(), 800);
         console.log("strict")
     }
@@ -284,25 +281,26 @@ console.log(sequence)
    /*-------------Assigns the rule that will apply if the sequence of the player and computer match. The players score is displayed in the scoreboard
    before being timed out to the next round.*/
 
-  if (good==true) {
+ else if (good==true) {
       if (playerSequence.length === turn) {
       nextSequence();
-      playerCount++;
-       turnCounter.innerHTML = "WELL DONE!";
+      turnCounter.innerHTML = "WELL DONE!";
       setTimeout(function() {
-      turnCounter.innerHTML = turn;
+        $(".pad").addClass('disabled');
+      turnCounter.innerHTML = playerCount;
       clearColor();
-     }, 3000);
-     setTimeout(gamePlay())}
-
+     }, 1000);
+     setTimeout(gamePlay(), 500)}
 };
 
 
 
  /*-------------Criteria for the game to be won and what occurs. This also stops the playInterval.*/
 
-if (playerCount == 20 && playerSeqMatch) {
-        clearInterval(playInterval);
+if (playerCount == 20 && good==true) {
+    flashTimeout()
+     clearInterval(playInterval);
+        $(".pad").addClass('disabled');
         winGame();
 };
 }
