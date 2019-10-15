@@ -101,11 +101,9 @@ $("#on").click(function() {
 function initializeGame() {
     clearInterval(playInterval);
     clearColor();
+    turn=1;
     turnCounter.innerHTML=turn;
     sequence = [];
-    playerSequence = [];
-    playerCount=0;
-    turn = 0;
     $(".pad").addClass('disabled');
     playerTimeout();
     nextSequence();
@@ -118,9 +116,8 @@ function nextSequence() {
     var randomNumber = Math.ceil(Math.random() * 4);
     sequence.push(randomNumber);
     console.log(sequence);
-    showSequence(sequence[sequence.length - 1]);
-    changeLevel();
-    playerSequence=[];
+
+
 }
 
 /*----------------------------------------This is the computers turn to generate a sequence. It sets the computer and player to 0. There is an array for the
@@ -128,25 +125,27 @@ player sequence. The turn increment sets the array, playerCount and computerCoun
 The value of the ComputerCount determines how many times this will be run. Once the sequence matches the computerCount, the playInterval will stop which allows the player to start clicking.
 The computerCount is then incremented by 1.*/
 
-function changeLevel() {
-    turn++;
-    turnCounter.innerHTML=playerCount};
+
 
 function gamePlay() {
     turn++;
-    playerCount = 0;
-    computerCount = 0;
+    nextSequence();
+        computerCount=0;
+    playerCount=0;
     playerSequence=[];
-    playInterval =
-    setInterval(function() {
-        showSequence(sequence[computerCount]);
+    playInterval = setInterval(function() {
+                    showSequence(sequence[computerCount])
+
     if (sequence.length === computerCount)
-        clearInterval(playInterval); {
+        {clearInterval(playInterval);
         $(".pad").removeClass('disabled');
         }
         computerCount++;
     }, 800);
 }
+
+
+
 
 /*----------------------------Changes visuals after the pad has been clicked*/
 function playerTimeout() {
@@ -234,16 +233,17 @@ $(".pad").click(function(){
                 console.log("four")
                }
 
-        check()
+        check();
 
-    });
+     });
+      });
 
  /*------------------------------------- function to check if the array of the computer matches the array the player has inputted and increment the count*/
 
 
 
 function check() {
-    playerCount++;
+
             /*-------------Assigns variables to see if the player and computer sequence match*/
 
   if (playerSequence[playerCount - 1] == sequence[playerCount - 1]){
@@ -256,21 +256,17 @@ console.log(playerSequence)
 console.log(sequence)
     /*-------------Assigns the boolean "good" which reacts to whether the sequence of the player and computer match and incorporates the strict rule*/
    if (good == false) {
-
+       turn--;
+ $(".pad").addClass('disabled');
     turnCounter.innerHTML = "Nope!";
     setTimeout(function(){
       turnCounter.innerHTML = turn;
+       $(".pad").removeClass('disabled');
       clearColor();
-      }, 3000);}
+      }, 3000);
+    setTimeout(gamePlay());}
 
-     if(good == true){
-    turnCounter.innerHTML = "WELL DONE!";
-    playerCount++;
-    playInterval;
-    setTimeout(function() {
-      turnCounter.innerHTML = turn;
-      clearColor();
-     }, 3000);}
+
 
  /*-------------Assigns the rule that will apply if strict is on and the sequence does not match*/
 
@@ -283,17 +279,7 @@ console.log(sequence)
 
 
    /*-------------Assigns the rule that will apply if strict is off and the sequence does not match*/
-  if (good==false && !strict) {
-        $(".pad").addClass('disabled');
-        turn--;
-        turnCounter.innerhtml ="Try again!";
-        offNoise;
-        flashTimeout();
-        setTimeout(function() {
-                  turnCounter.innerhtml =playerCount}, 300);
-        setTimeout(gamePlay, 500);
-        console.log("Not match and not strict")
-    }
+
 
    /*-------------Assigns the rule that will apply if the sequence of the player and computer match. The players score is displayed in the scoreboard
    before being timed out to the next round.*/
@@ -301,11 +287,13 @@ console.log(sequence)
   if (good==true) {
       if (playerSequence.length === turn) {
       nextSequence();
-         $(".pad").addClass('disabled');
-            turnCounter.innerHTML=playerCount;
-            setTimeout(gamePlay, 500);
-            console.log("match")
-        }
+      playerCount++;
+       turnCounter.innerHTML = "WELL DONE!";
+      setTimeout(function() {
+      turnCounter.innerHTML = turn;
+      clearColor();
+     }, 3000);
+     setTimeout(gamePlay())}
 
 };
 
