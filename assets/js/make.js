@@ -6,7 +6,7 @@ let turn;
 let good;
 let compTurn;
 let intervalId;
-let Strict =false;
+let strict =false;
 let noise = true;
 let on = false;
 let win;
@@ -126,8 +126,7 @@ The computerCount is then incremented by 1.*/
 
 function gamePlay() {
     turn++;
-    nextSequence();
-        computerCount=0;
+    computerCount=0;
     playerCount=0;
     playerSequence=[];
     playInterval = setInterval(function() {
@@ -207,6 +206,7 @@ $(".pad").click(function() {
                 soundOne.play()
                 showSequence(1);
                 console.log("one")
+
             };
 
             if (padID == "two")
@@ -214,6 +214,7 @@ $(".pad").click(function() {
                 soundTwo.play()
                 showSequence(2);
                 console.log("two")
+
                }
 
              if (padID == "three")
@@ -221,6 +222,7 @@ $(".pad").click(function() {
                 soundThree.play();
                 showSequence(3);
                 console.log("three")
+
                 }
 
               if (padID == "four")
@@ -228,10 +230,9 @@ $(".pad").click(function() {
                 soundFour.play();
                 showSequence(4);
                 console.log("four")
-               }
-
+             }
         check();
-
+        console.log(playerSequence)
      })
 
  /*------------------------------------- function to check if the array of the computer matches the array the player has inputted and increment the count*/
@@ -248,11 +249,9 @@ playerCount++;
     good = false
 }
 
-console.log(playerSequence)
-console.log(sequence)
-    /*-------------Assigns the boolean "good" which reacts to whether the sequence of the player and computer match and incorporates the strict rule*/
-   if (good == false && !strict) {
-       turn--;
+   /*-------------Assigns the boolean "good" which reacts to whether the sequence of the player and computer match and incorporates the strict rule*/
+   if (good==false && strict==false) {
+    turn--;
  $(".pad").addClass('disabled');
     turnCounter.innerHTML = "Nope!";
     setTimeout(function(){
@@ -260,18 +259,20 @@ console.log(sequence)
        $(".pad").removeClass('disabled');
       clearColor();
       }, 3000);
-    setTimeout(gamePlay(), 300);}
+    setTimeout(gamePlay(), 700);
+    console.log("Seqdontmatch")}
 
 
 
  /*-------------Assigns the rule that will apply if strict is on and the sequence does not match*/
 
 
-    if (strict === true && good==false)
+    if (strict==true && good==false)
     {
         $(".pad").addClass('disabled');
         setTimeout(showGameOver(), 800);
         console.log("strict")
+        console.log("Seqdontmatch&STRICt")
     }
 
 
@@ -283,14 +284,16 @@ console.log(sequence)
 
  else if (good==true) {
       if (playerSequence.length === turn) {
+          turn++;
       nextSequence();
       turnCounter.innerHTML = "WELL DONE!";
       setTimeout(function() {
         $(".pad").addClass('disabled');
-      turnCounter.innerHTML = playerCount;
-      clearColor();
+         turnCounter.innerHTML = playerCount;
+        clearColor();
      }, 1000);
-     setTimeout(gamePlay(), 500)}
+     gamePlay()}
+     console.log("Seqmatch")
 };
 
 
@@ -315,8 +318,10 @@ if (playerCount == 20 && good==true) {
 strictButton.addEventListener('click', (event) => {
   if (strictButton.checked == true) {
     strict = true;
+    console.log("strict true")
   } else {
     strict = false;
+    console.log("strict false")
   }
 });
 
