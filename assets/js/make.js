@@ -79,6 +79,7 @@ if(on ==false){
     turnCounter.innerHTML = "--";
     clearColor();
     clearInterval(intervalId);
+     $(".pad").addClass('disabled');
 }
 else{
  allowStart;
@@ -255,11 +256,11 @@ playerCount++;
  $(".pad").addClass('disabled');
     turnCounter.innerHTML = "Nope!";
     setTimeout(function(){
-    turnCounter.innerHTML = turn;
-       $(".pad").removeClass('disabled');
-      clearColor();
+        turnCounter.innerHTML = turn;
+        $(".pad").removeClass('disabled');
+        clearColor();
       }, 3000);
-    setTimeout(gamePlay(), 700);
+    gamePlay()
     console.log("Seqdontmatch")}
 
 
@@ -285,10 +286,11 @@ playerCount++;
  else if (good==true) {
       if (playerSequence.length === turn) {
           turn++;
+          $(".pad").addClass('disabled');
       nextSequence();
       turnCounter.innerHTML = "WELL DONE!";
       setTimeout(function() {
-        $(".pad").addClass('disabled');
+
          turnCounter.innerHTML = playerCount;
         clearColor();
      }, 1000);
