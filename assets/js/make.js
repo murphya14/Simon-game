@@ -33,6 +33,7 @@ const bottomRight = document.querySelector("#four");
 const strictButton = document.querySelector("#strict");
 const onButton = document.querySelector("#on");
 const startButton = document.querySelector("#start");
+const strictSwitch = document.querySelector("#strictSwitch");
 
 
 
@@ -71,7 +72,7 @@ let allowStart = startButton.onclick = () => {
         $("#start").addClass("begin-game-start");
         clearColor();
         initializeGame();
-        }
+        };
  /*--------------------------------------------------------------------------------- What happens when start is clicked(after on has been clicked) */
 
 
@@ -82,7 +83,7 @@ if(on ==false){
      $(".pad").addClass('disabled');
 }
 else{
- allowStart;
+ allowStart();
 }
 
 
@@ -90,7 +91,7 @@ else{
     /*----------------------------------------Power is clicked*/
 
 $("#on").click(function() {
-       window.on ==true;
+
       $("#on").addClass("begin-game-start");
       flashColor();
       turnCounter.innerHTML = "Score";
@@ -117,7 +118,7 @@ function nextSequence() {
     var randomNumber = Math.ceil(Math.random() * 4);
     sequence.push(randomNumber);
     console.log(sequence);
-};
+}
 /*----------------------------------------This is the computers turn to generate a sequence. It sets the computer and player to 0. There is an array for the
 player sequence. The turn increment sets the array, playerCount and computerCount back to 0 for the next count. The player interval is a switch that checks the sequence in the array. Each element of the sequence produces a flash and associated sound.
 The value of the ComputerCount determines how many times this will be run. Once the sequence matches the computerCount, the playInterval will stop which allows the player to start clicking.
@@ -131,7 +132,7 @@ function gamePlay() {
     playerCount=0;
     playerSequence=[];
     playInterval = setInterval(function() {
-                    showSequence(sequence[computerCount])
+                    showSequence(sequence[computerCount]);
 
     if (sequence.length === computerCount)
         {clearInterval(playInterval);
@@ -160,7 +161,7 @@ function showSequence(element) {
      $("#one").addClass("flash");
        setTimeout(function(){
                   $("#one").removeClass("flash");
-              },800)
+              },800);
 
    break;
 
@@ -169,7 +170,7 @@ case 2:
    $("#two").addClass("flash");
        setTimeout(function(){
                   $("#two").removeClass("flash");
-              },800)
+              },800);
        break;
 
 case 3:
@@ -177,7 +178,7 @@ case 3:
   $("#three").addClass("flash");
        setTimeout(function(){
                   $("#three").removeClass("flash");
-              },800)
+              },800);
    break;
 
 case 4:
@@ -185,14 +186,14 @@ case 4:
   $("#four").addClass("flash");
        setTimeout(function(){
                   $("#four").removeClass("flash");
-              },800)
+              },800);
     break;
 
     default:
     text = "No value found";
 
  }
-};
+}
 
 
 //This converts the clicks into numbers and pushes it to a new array.
@@ -204,17 +205,17 @@ $(".pad").click(function() {
         if (padID == "one")
             {
                 playerSequence.push(1);
-                soundOne.play()
+                soundOne.play();
                 showSequence(1);
-                console.log("one")
+                console.log("one");
 
-            };
+            }
 
             if (padID == "two")
                 {playerSequence.push(2);
-                soundTwo.play()
+                soundTwo.play();
                 showSequence(2);
-                console.log("two")
+                console.log("two");
 
                }
 
@@ -222,7 +223,7 @@ $(".pad").click(function() {
                 {playerSequence.push(3);
                 soundThree.play();
                 showSequence(3);
-                console.log("three")
+                console.log("three");
 
                 }
 
@@ -230,11 +231,11 @@ $(".pad").click(function() {
                 {playerSequence.push(4);
                 soundFour.play();
                 showSequence(4);
-                console.log("four")
+                console.log("four");
              }
         check();
-        console.log(playerSequence)
-     })
+        console.log(playerSequence);
+     });
 
  /*------------------------------------- function to check if the array of the computer matches the array the player has inputted and increment the count*/
 
@@ -245,9 +246,9 @@ playerCount++;
             /*-------------Assigns variables to see if the player and computer sequence match*/
 
   if (playerSequence[playerCount - 1] == sequence[playerCount - 1]){
-    good = true
+    good = true;
 } else {
-    good = false
+    good = false;
 }
 
    /*-------------Assigns the boolean "good" which reacts to whether the sequence of the player and computer match and incorporates the strict rule*/
@@ -260,8 +261,8 @@ playerCount++;
         $(".pad").removeClass('disabled');
         clearColor();
       }, 3000);
-    gamePlay()
-    console.log("Seqdontmatch")}
+    gamePlay();
+    console.log("Seqdontmatch");}
 
 
 
@@ -272,8 +273,8 @@ playerCount++;
     {
         $(".pad").addClass('disabled');
         setTimeout(showGameOver(), 800);
-        console.log("strict")
-        console.log("Seqdontmatch&STRICt")
+        console.log("strict");
+        console.log("Seqdontmatch&STRICt");
     }
 
 
@@ -294,20 +295,20 @@ playerCount++;
          turnCounter.innerHTML = playerCount;
         clearColor();
      }, 1000);
-     gamePlay()}
-     console.log("Seqmatch")
-};
+     gamePlay();}
+     console.log("Seqmatch");
+}
 
 
 
  /*-------------Criteria for the game to be won and what occurs. This also stops the playInterval.*/
 
 if (playerCount == 20 && good==true) {
-    flashTimeout()
+    flashTimeout();
      clearInterval(playInterval);
         $(".pad").addClass('disabled');
-        winGame();
-};
+        winGame();}
+
 }
  /*-------------------------------------Running the check function through when the pads have been clicked by the player*/
 
@@ -317,22 +318,25 @@ if (playerCount == 20 && good==true) {
 
 
 
-strictButton.addEventListener('click', (event) => {
-  if (strictButton.checked == true) {
-    strict = true;
-    console.log("strict true")
-  } else {
+$(strictSwitch).on("click", function() {
+        if (strictSwitch.checked == true) {
+            strict = true;  }
+            else {
     strict = false;
-    console.log("strict false")
+    console.log("strict false");
   }
+  $(strictSwitch).is(':checked');
+
 });
+
+
 
 
 
 /*---------------------------This removes the flash of the pads after 500 milliseconds */
 
 function flashTimeout() {
-    flashColor;
+    flashColor();
     setTimeout(function() {
         clearColor();
     }, 500);
@@ -343,7 +347,7 @@ function flashTimeout() {
 /*---------------------------This function is incurred when it is game over and reflects this message in the Counter box */
 
 function showGameOver() {
-   turnCounter.innerHTML("GAME OVER");
+   turnCounter.innerHTML="GAME OVER";
    flashColor();
 }
 
@@ -353,7 +357,7 @@ function winGame() {
     turnCounter.innerHTML("WIN!");
     flashColor();
     setTimeout(function() {
-        winNoise;
+        winNoise();
     }, 2000);
 }
 
