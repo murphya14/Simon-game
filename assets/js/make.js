@@ -261,22 +261,16 @@ playerCount++;
         turnCounter.innerHTML = turn;
         $(".pad").removeClass('disabled');
         clearColor();
-        setTimeout(function(){gamePlay()}, 500);
+        setTimeout(function(){gamePlay();}, 500);
       }, 500);
-
-    }
-
+    };
  /*-------------Assigns the rule that will apply if strict is on and the sequence does not match*/
-
-
-    if (strict && !good)
+  if (strict && !good)
     {
         $(".pad").addClass('disabled');
         showGameOver();
         console.log("Seqdontmatch&STRICt");
-    }
-
-
+    };
    /*-------------Assigns the rule that will apply if strict is off and the sequence does not match*/
 
 
@@ -284,28 +278,26 @@ playerCount++;
    before being timed out to the next round.*/
 
 if (good) {
-      if (playerSequence.length === turn) {  /*------------this is stopping the function----*/
+       {
+        $(".pad").addClass('disabled');
+        turnCounter.innerHTML = "WELL DONE!";
         nextSequence();
-      $(".pad").addClass('disabled');
-         console.log("Seqmatch");
-      turnCounter.innerHTML = "WELL DONE!";
-      setTimeout(function()
-       {turnCounter.innerHTML = playerCount;
+        console.log("Seqmatch");
+        setTimeout(function(){
+        turnCounter.innerHTML = turn;
+        $(".pad").removeClass('disabled');
         clearColor();
-     }, 1000);
-     setTimeout(gamePlay, 500);}
-
-}
-
-
-
+        setTimeout(function(){gamePlay();}, 500);
+      }, 500);
+    }
+};
  /*-------------Criteria for the game to be won and what occurs. This also stops the playInterval.*/
 
 if (playerCount == 20 && good) {
     flashTimeout();
      clearInterval(playInterval);
         $(".pad").addClass('disabled');
-        winGame();}
+        winGame();};
 
 }
  /*-------------------------------------Running the check function through when the pads have been clicked by the player*/
@@ -342,7 +334,7 @@ function flashTimeout() {
 function showGameOver() {
    turnCounter.innerHTML="GAME OVER";
    flashColor();
-   setTimeout(initializeGame(), 1000);
+   setTimeout(function(){initializeGame()}, 1000);
 }
 
 /*---------------------------This function is incurred when it is game over and reflects this message in the Counter box if the player has won adn plays the winning music*/
@@ -353,7 +345,7 @@ function winGame() {
     setTimeout(function() {
         winNoise();
     }, 2000);
-    setTimeout(initializeGame(), 1000);
+     setTimeout(function(){initializeGame()}, 1000);
 }
 
 });
