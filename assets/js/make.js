@@ -252,28 +252,27 @@ playerCount++;
 }
 
    /*-------------Assigns the boolean "good" which reacts to whether the sequence of the player and computer match and incorporates the strict rule*/
-   if (good==false && strict==false) {
+   if (!good && !strict) {
     turn--;
  $(".pad").addClass('disabled');
     turnCounter.innerHTML = "Nope!";
     setTimeout(function(){
+        console.log("Seqdontmatch and not strict");
         turnCounter.innerHTML = turn;
         $(".pad").removeClass('disabled');
         clearColor();
-      }, 3000);
-    gamePlay();
-    console.log("Seqdontmatch");}
+        setTimeout(function(){gamePlay()}, 500);
+      }, 500);
 
-
+    }
 
  /*-------------Assigns the rule that will apply if strict is on and the sequence does not match*/
 
 
-    if (strict==true && good==false)
+    if (strict && !good)
     {
         $(".pad").addClass('disabled');
-        setTimeout(showGameOver(), 800);
-        console.log("strict");
+        showGameOver();
         console.log("Seqdontmatch&STRICt");
     }
 
@@ -284,26 +283,25 @@ playerCount++;
    /*-------------Assigns the rule that will apply if the sequence of the player and computer match. The players score is displayed in the scoreboard
    before being timed out to the next round.*/
 
- else if (good==true) {
-      if (playerSequence.length === turn) {
-          turn++;
-          $(".pad").addClass('disabled');
-      nextSequence();
+if (good) {
+      if (playerSequence.length === turn) {  /*------------this is stopping the function----*/
+        nextSequence();
+      $(".pad").addClass('disabled');
+         console.log("Seqmatch");
       turnCounter.innerHTML = "WELL DONE!";
-      setTimeout(function() {
-
-         turnCounter.innerHTML = playerCount;
+      setTimeout(function()
+       {turnCounter.innerHTML = playerCount;
         clearColor();
      }, 1000);
-     gamePlay();}
-     console.log("Seqmatch");
+     setTimeout(gamePlay, 500);}
+
 }
 
 
 
  /*-------------Criteria for the game to be won and what occurs. This also stops the playInterval.*/
 
-if (playerCount == 20 && good==true) {
+if (playerCount == 20 && good) {
     flashTimeout();
      clearInterval(playInterval);
         $(".pad").addClass('disabled');
@@ -327,12 +325,7 @@ $(strictSwitch).on("click", function() {
   }
   $(strictSwitch).is(':checked');
 
-});
-
-
-
-
-
+})
 /*---------------------------This removes the flash of the pads after 500 milliseconds */
 
 function flashTimeout() {
@@ -349,6 +342,7 @@ function flashTimeout() {
 function showGameOver() {
    turnCounter.innerHTML="GAME OVER";
    flashColor();
+   setTimeout(initializeGame(), 1000);
 }
 
 /*---------------------------This function is incurred when it is game over and reflects this message in the Counter box if the player has won adn plays the winning music*/
@@ -359,6 +353,7 @@ function winGame() {
     setTimeout(function() {
         winNoise();
     }, 2000);
+    setTimeout(initializeGame(), 1000);
 }
 
 });
