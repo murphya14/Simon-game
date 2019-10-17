@@ -278,6 +278,7 @@ playerCount++;
    before being timed out to the next round.*/
 
 if (good) {
+    if (playerSequence.length === sequence.length)  /*-------------This seems to be a problem*/
        {
         $(".pad").addClass('disabled');
         turnCounter.innerHTML = "WELL DONE!";
