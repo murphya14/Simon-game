@@ -1,18 +1,16 @@
-let order = [];
+
 let sequence = [];
 let playerSequence = [];
-let flash;
 let turn;
 let good;
-let compTurn;
 let intervalId;
 let strict =false;
 let noise = true;
 let on = false;
-let win;
-let offNoise = new Audio('');
-let winNoise = new Audio('');
-let strictNoise = new Audio('');
+
+let offNoise = new Audio('https://www.freesound.org/people/Bertrof/sounds/131657/download/131657__bertrof__game-sound-wrong.wav');
+let winNoise = new Audio('https://www.freesound.org/people/rhodesmas/sounds/320652/download/320652__rhodesmas__success-02.wav');
+let strictNoise = new Audio('https://www.freesound.org/people/Bertrof/sounds/131657/download/131657__bertrof__game-sound-wrong.wav');
 let soundOne = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3');
 let soundTwo = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3');
 let soundThree = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3');
@@ -310,6 +308,7 @@ if (playerCount == 20 && good) {
 
 
 $(strictSwitch).on("click", function() {
+    strictNoise.play();
         if (strictSwitch.checked == true) {
             strict = true;  }
             else {
@@ -335,6 +334,7 @@ function flashTimeout() {
 function showGameOver() {
    turnCounter.innerHTML="GAME OVER";
    flashColor();
+   offNoise.play();
    setTimeout(function(){initializeGame();}, 1000);
 }
 
@@ -342,11 +342,11 @@ function showGameOver() {
 
 function winGame() {
     turnCounter.innerHTML("WIN!");
+    winNoise.play();
     flashColor();
     setTimeout(function() {
-        winNoise();
     }, 2000);
-     setTimeout(function(){initializeGame();}, 1000);
+     setTimeout(function(){initializeGame();}, 2000);
 }
 
 });
