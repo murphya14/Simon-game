@@ -161,7 +161,7 @@ function showSequence(element) {
      $("#one").addClass("flash");
        setTimeout(function(){
                   $("#one").removeClass("flash");
-              },800);
+              },900);
 
    break;
 
@@ -170,7 +170,7 @@ case 2:
    $("#two").addClass("flash");
        setTimeout(function(){
                   $("#two").removeClass("flash");
-              },800);
+              },900);
        break;
 
 case 3:
@@ -178,7 +178,7 @@ case 3:
   $("#three").addClass("flash");
        setTimeout(function(){
                   $("#three").removeClass("flash");
-              },800);
+              },900);
    break;
 
 case 4:
@@ -186,7 +186,7 @@ case 4:
   $("#four").addClass("flash");
        setTimeout(function(){
                   $("#four").removeClass("flash");
-              },800);
+              },900);
     break;
 
     default:
@@ -263,14 +263,14 @@ playerCount++;
         clearColor();
         setTimeout(function(){gamePlay();}, 500);
       }, 500);
-    };
+    }
  /*-------------Assigns the rule that will apply if strict is on and the sequence does not match*/
   if (strict && !good)
     {
         $(".pad").addClass('disabled');
         showGameOver();
         console.log("Seqdontmatch&STRICt");
-    };
+    }
    /*-------------Assigns the rule that will apply if strict is off and the sequence does not match*/
 
 
@@ -291,14 +291,14 @@ if (good) {
         setTimeout(function(){gamePlay();}, 500);
       }, 500);
     }
-};
+}
  /*-------------Criteria for the game to be won and what occurs. This also stops the playInterval.*/
 
 if (playerCount == 20 && good) {
     flashTimeout();
      clearInterval(playInterval);
         $(".pad").addClass('disabled');
-        winGame();};
+        winGame();}
 
 }
  /*-------------------------------------Running the check function through when the pads have been clicked by the player*/
@@ -318,7 +318,7 @@ $(strictSwitch).on("click", function() {
   }
   $(strictSwitch).is(':checked');
 
-})
+});
 /*---------------------------This removes the flash of the pads after 500 milliseconds */
 
 function flashTimeout() {
@@ -335,7 +335,7 @@ function flashTimeout() {
 function showGameOver() {
    turnCounter.innerHTML="GAME OVER";
    flashColor();
-   setTimeout(function(){initializeGame()}, 1000);
+   setTimeout(function(){initializeGame();}, 1000);
 }
 
 /*---------------------------This function is incurred when it is game over and reflects this message in the Counter box if the player has won adn plays the winning music*/
@@ -346,7 +346,7 @@ function winGame() {
     setTimeout(function() {
         winNoise();
     }, 2000);
-     setTimeout(function(){initializeGame()}, 1000);
+     setTimeout(function(){initializeGame();}, 1000);
 }
 
 });
