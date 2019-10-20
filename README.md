@@ -9,9 +9,9 @@ https://github.com/murphya14/Simon-game.git
 </h1>
 
 <div align="center">
-This is an Interactive Frontend website for an engaging memory game; *The Simon Game*.<br>
+This is an Interactive Frontend website for an engaging memory game; __The Simon Game__.<br>
 The purpose of this website is to provide a challenging game that allows for an energetic User Interface and captures the attention of the player.
-This game has stood the test of time and has been a popular choice for over **40 years!**
+This game has stood the test of time and has been a popular choice for over __40 years!__
 
 
 This is a game that appeals to __all ages__. There is the
@@ -19,7 +19,9 @@ option of a more challenging game by using the __Strict Mode__ setting which all
 The aim of this website is to provide an energetic game that is pleasing both visually and audibly.
 
 [**View Simon Game website here!**](https://murphya14.github.io/Simon-game/)
-<div>
+</div>
+
+
 
 ## UX Design
 
@@ -52,22 +54,22 @@ Wireframe Mock-ups using [Balsamiq](https://balsamiq.com/)
 * [Information modal Mobile Display](/assets/css/images/modal-wireframe-mobile.pdf)
 
 
-##Design
+## Design
 The design is a reflection of the original game.
 
-###Fonts
-*The font BLAH was used as the primary font so as to
+### Fonts
+The font Orbitron was used as the primary font so as to give a modern/space feel that co-ordinates with the flashing lights and sounds.
 
-###Colour
-*The main header and footer are black with contrastin white text. The comment that is the "catch phase" of the game is highlighted in neon pink.
-*The Simon border for the padding is a strong balck that opposes the primary colours of the game and matches the header and footer.
-*The pads are the four primary colours and match the original game.
-*Inner circle - This is where the control buttons are. It is black which gives the illusion of a physical object like the original game and contrast against the control buttons.
-*Start button/Power Button - Faded green colour but once clicked both are highlighted.
-*Strict Slider - this is labelled and white. Once turned on it becomes red which reflects the challenge that it represents.
-*Game-info button - A neon pink that stands out, adds to the retro feel that this game represents and matches with the intriging comment.
+### Colour
+* The main header and footer are black with contrastin white text. The comment that is the "catch phase" of the game is highlighted in neon pink.
+* The Simon border for the padding is a strong balck that opposes the primary colours of the game and matches the header and footer.
+* The pads are the four primary colours and match the original game.
+* Inner circle - This is where the control buttons are. It is black which gives the illusion of a physical object like the original game and contrast against the control buttons.
+* Start button/Power Button - Faded green colour but once clicked both are highlighted.
+* Strict Slider - this is labelled and white. Once turned on it becomes red which reflects the challenge that it represents.
+* Game-info button - A neon pink that stands out, adds to the retro feel that this game represents and matches with the intriging comment.
 
-###Styling
+### Styling
 The styling is in line with the original game and incorporates flashing and audio to make the game even more engageing.
 
 
@@ -75,44 +77,44 @@ The styling is in line with the original game and incorporates flashing and audi
 ### Existing Features
 #### Feature 1
 _Dashboard:_
-*This is a __interactive__ dashboard which welcomes the user with striking imagery that allows for an intuitive feel for the game.
+* This is a __interactive__ dashboard which welcomes the user with striking imagery that allows for an intuitive feel for the game.
 
 
 
 #### Feature 2
 _Game Information modal:_
-*Clear access to the information about "How to play" is shown with a modal button.
-*This is a fixed modal in bright pink to catch the users attention.
+* Clear access to the information about "How to play" is shown with a modal button.
+* This is a fixed modal in bright pink to catch the users attention.
 
 
 #### Feature 3
 _Coloured Pads:_
-*The four pads are faded and only light up once the power button has been clicked.
-*The pads are primarily where the user interacts with the game.
-*You can only click the pads when it is the players turn.
+* The four pads are faded and only light up once the power button has been clicked.
+* The pads are primarily where the user interacts with the game.
+* You can only click the pads when it is the players turn.
 
 
 #### Feature 4
 _Power and Start button:_
-*The power button must be clicked before the start button and this has been carefully programmed to follow this sequence.
-*Once the power button has been clicked the pads light up and the score board reflects that the power is on.
-*Once the start button is pressed the game reacts by fading the pad lights and the score board reflects the beginning of the game
+* The power button must be clicked before the start button and this has been carefully programmed to follow this sequence.
+* Once the power button has been clicked the pads light up and the score board reflects that the power is on.
+* Once the start button is pressed the game reacts by fading the pad lights and the score board reflects the beginning of the game
 by showing zero.
 
 #### Feature 5
 _Strict Slider:_
-*This is slider button is off by default and when slide on, it reflects this through a colour change.
+* This is slider button is off by default and when slide on, it reflects this through a colour change.
 
 #### Feature 7
 _Scoreboard:_
-*Once the page is loaded the score board will be empty.
-*With the power button clicked it will show "--"
-*Once start is clicked the scoreboard begins at "0"
+* Once the page is loaded the score board will be empty.
+* With the power button clicked it will show "--"
+* Once start is clicked the scoreboard begins at "0"
 
 #### Feature 8
 _Header & Footer:_
-*Footer copyrighting the design.
-*Navigation bar boldy showing the name of the game and an intriging comment that hints at the games nature.
+* Footer copyrighting the design.
+* Navigation bar boldy showing the name of the game and an intriging comment that hints at the games nature.
 
 ### Features to implement in the Future
 * A range of levels including rotation of the pads to tailor for more abilities.
@@ -131,15 +133,15 @@ This project was written on Cloud9 and gitpod.
 <br>https://c9.io/login
 <br>https://www.gitpod.io/
 
-*__JQuery:__
+* __JQuery:__
 Used to work more efficiently with the DOM.
 <br>(https://jquery.com)
 
-*__Jasmine__
+* __Jasmine__
 A Test Driven Development tool to test JQuery and javaScript.
 <br>(https://jasmine.github.io/)
 
-*__Jasmine__
+* __Jasmine__
 Used to allow JQuery be tested using jasmine.
 <br>(https://github.com/velesin/jasmine-jquery)
 

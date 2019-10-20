@@ -279,7 +279,7 @@ if (good) {
     if (playerSequence.length === sequence.length)  /*-------------This seems to be a problem*/
        {
         $(".pad").addClass('disabled');
-        turnCounter.innerHTML = "WELL DONE!";
+        turnCounter.innerHTML = "GOOD!";
         nextSequence();
         console.log("Seqmatch");
         setTimeout(function(){
