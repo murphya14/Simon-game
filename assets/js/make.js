@@ -7,7 +7,6 @@ let intervalId;
 let strict =false;
 let noise = true;
 let on = false;
-
 let offNoise = new Audio('https://www.freesound.org/people/Bertrof/sounds/131657/download/131657__bertrof__game-sound-wrong.wav');
 let winNoise = new Audio('https://www.freesound.org/people/rhodesmas/sounds/320652/download/320652__rhodesmas__success-02.wav');
 let strictNoise = new Audio('https://www.freesound.org/people/Bertrof/sounds/131657/download/131657__bertrof__game-sound-wrong.wav');
@@ -21,13 +20,7 @@ let computerCount;
 let playerCount;
 let allowStart;
 
-
-
 const turnCounter = document.querySelector("#counter");
-const topLeft = document.querySelector("#one");
-const topRight = document.querySelector("#two");
-const bottomLeft = document.querySelector("#three");
-const bottomRight = document.querySelector("#four");
 const strictButton = document.querySelector("#strict");
 const onButton = document.querySelector("#on");
 const startButton = document.querySelector("#start");
