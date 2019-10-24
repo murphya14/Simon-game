@@ -25,7 +25,7 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
 
 .center {
     text-align: center;
-    ;
+
 }
 
 /*Nav/header styling*/
@@ -62,7 +62,7 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
   left: 50%;
   transform: translate(-50%, -50%);
     width: 250px;
-    height: 250px;
+    height:  250px;
     background: #000;
     border-radius: 125px;
     z-index: 10;
@@ -85,11 +85,11 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
 
 .pad {
 
-    width: 270px;
-    height: 270px;
-    float: left;
+    width: 50%;
+    height: 50%;
+    /* float: right; */
     z-index: 1;
-    margin: 10px;
+    /* margin: 10px; */
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
     filter: alpha(opacity=60);
     opacity: 0.6;
@@ -102,30 +102,29 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
 }
 
 .one {
-    border-top-left-radius: 270px;
+    border-top-left-radius: 275px;
     background-color: #FFF70B;
+    float: left;
 }
 
 .two {
-    float: left;
-    border-top-right-radius: 270px;
+    border-top-right-radius: 275px;
     background-color: #19F0FF;
-    clear: right;
-
+    /* clear: right; */
+    float: right;
 }
 
 .three {
-    float: left;
-    border-bottom-left-radius: 270px;
+    border-bottom-left-radius: 275px;
     background-color: #F92323;
-    clear: left;
+    /* clear: left; */
+    float: left;
 }
 
 .four {
-    float: left;
-    border-bottom-right-radius: 270px;
+    border-bottom-right-radius: 275px;
     background-color: #23F955;
-
+    float: right;
 }
 
 /*Buttons*/
@@ -206,15 +205,15 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
     border-radius: 70%;
     text-align: center;
     font-weight: 700;
-    margin-left: 15%;
+    /* margin-left: 10%; */
     margin-top: 5%;
     text-transform: uppercase;
     border: 5px;
-    border-color: #0B7842;
+    border-color:white;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     color: white;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 12px;
 
 
 
@@ -234,7 +233,9 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
   width: 35%;
   height: 15%;
   text-align: center;
-  margin-left:70px;
+margin-left: 60%;
+    margin-top: -35%;
+
   color:#F50505;
   border: solid white;
 
@@ -246,6 +247,8 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
   display: inline-block;
   width: 60px;
   height: 24px;
+  margin-right: 70%;
+  margin-top: 20%;
 }
 
 /* Hide default HTML checkbox */
@@ -279,6 +282,7 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
+
 }
 
 input:checked + .slider {
