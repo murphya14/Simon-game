@@ -51,33 +51,45 @@ Most common path through the website:
 #### Home Page:
 
 1. Dashboard:
-    * Go to the "Home" page from a desktop.
-    * Verify that the navigation bar is responsive and switches from in line menu to select menu based on screen size.
-    * Click logo to ensure it links to the Home page
-    * Check each link on the navigation bar to ensure it directs as labelled.
-    * Check that the active page link is shown based on the gray colour.
-    * Hover over the social icons and verify the hover colour change works.
+Confirmed
+    * the dashboard was displaying properly on all screens.
+    * The score board was displaying --
+    * Nothing lights up until the power button is pressed.
+    * The header and footer were sitting correctly.
+    * Spelling was correct and clear.
+    * All controls were placed appropriately.
 
 2. "How to Play" modal:
-     * Alter width of window to verify that image looks good on all devices and is not included in some devices.
+Confirmed
+     * Positioned correctly when the page was opened,
+     * Visually appealing and obvious to the user.
+     * All spelling is correct.
+     * Closing the modal is accessable by re-clicking the button or clicking "Close."
 
 3. Power button:
-    * Hover over call to action button and ensure that it changes colour
-    * Click the call to action button to ensure that it links to the correct page.
+Confirmed
+    * Hover over the button and ensure that it changes colour.
+    * Once clicked the game reacts by lighting up and changing the scoreboard from "--" to "Score."
 
 4. Start button:
-    * Hover over call to action button and ensure that it changes colour
-    * Click the call to action button to ensure that it links to the correct page.
+Confirmed
+    * The user has the option of pressing the start button once the power button has been activated.
+    * Once clicked the game reacts by lighting down and the scoreboard showing the first round.
 
 5. Strict Slider:
-    * Hover over call to action button and ensure that it changes colour
-    * Click the call to action button to ensure that it links to the correct page.
+Confirmed
+    * Switch the slider to ensure it changes colour.
+    * Sound also demonstrates the the Strict Mode is on.
+    * The game initializes the strict mode when the player begins the game.
 
 6. When the game is in play:
-    * Hover over call to action button and ensure that it changes colour
-    * Click the call to action button to ensure that it links to the correct page.
+Confirmed
+    * The pads display the sound and visual effects for the computer sequence.
+    * The pads respond to the user clicks and display the sound and visual effects for the player sequence.
+    * There is sufficient time between pad displays.
 
 4. Footer:
+Confirmed
     * Check the responsive design at each width.
 
 
@@ -85,8 +97,8 @@ Most common path through the website:
 
 ## Further testing:
 
-1. Received feedback from students, friends and family who viewed the website on different devices. _Nav bar was taking up half the screen in medium devices and needed to be fixed so it was left at the top of the page._
-2. Difficulty with creating the links when in <select> mode for mobiles. Need to learn JavaScript to implement this feature.
+1. Received feedback from students, friends and family who viewed the game on different devices. _ There was a problem with the sequence gap time for both playerSequence and computerSequence. This was rectified by using timing intervals._
+2. Used Chrome Developer tools to get appropriate placing and design.
 
 
 
