@@ -12,6 +12,7 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
     width: 100%;
     margin: auto;
     overflow: hidden;
+
 }
 
 .wrapper {
@@ -59,26 +60,29 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
 
 .circle {
     position: absolute;
-    width: 100%;
+    width: 100vw;
     height: 100vw;
     max-width: 300px;
     max-height: 300px;
     background: #000;
     border-radius: 50%;
     z-index: 10;
-    top: 25%;
+    top: 23%;
     left: 25%;
 }
 
 .background-circle {
     position: relative;
     top: 0px;
-    width: 100%;
+    width: 560vw;
     height: 560vw;
+    max-width: 600px;
+    max-height: 600px;
     z-index: 0;
     background-color: black;
     border-radius: 50%;
-    margin: auto;
+    margin: 0 auto;
+    margin-bottom: 20px;
 }
 
 

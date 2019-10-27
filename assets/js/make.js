@@ -56,10 +56,13 @@ function flashColor() {
 
   /*----------------------------------------The game cannot start before power has been turned on */
 
-let allowStart = startButton.onclick = () => {
+function allowStart(){
+    startButton.onclick = () => {
+         $("#start").removeClass('disabled')
         $("#start").addClass("begin-game-start");
         clearColor();
         initializeGame();
+    }
         };
  /*--------------------------------------------------------------------------------- What happens when start is clicked(after on has been clicked) */
 
@@ -69,9 +72,10 @@ if(on ==false){
     clearColor();
     clearInterval(intervalId);
      $(".pad").addClass('disabled');
+     $("#start").addClass('disabled')
 }
 else{
- allowStart;
+ allowStart();
 }
 
 
@@ -298,8 +302,8 @@ if (playerCount == 20 && good) {
 
 
 $(strictSwitch).on("click", function() {
-    strictNoise.play();
         if (strictSwitch.checked == true) {
+            strictNoise.play();
             strict = true;  }
             else {
     strict = false;

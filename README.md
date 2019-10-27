@@ -173,7 +173,7 @@ Bootstrap 4 was utilised to create a resposive web page and give a framework to 
 
 ## Testing
 
-Testing information can be found in separate [TESTING.md file](https://github.com/murphya14/Fitness-website/blob/master/TESTING.md)
+Testing information can be found in separate [TESTING.md file](https://github.com/murphya14/Simon-game/blob/master/Testing.md)
 
 ## Deployment
 
