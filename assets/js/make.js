@@ -302,11 +302,11 @@ if (playerCount == 20 && good) {
 
 $(strictSwitch).on("click", function() {
     strictNoise.play();
-        if (strictSwitch.checked == true) {
+    if (strictSwitch.checked == true) {
             strict = true;  }
-            else {
-    strict = false;
-    console.log("strict false");
+    else {
+        strict = false;
+        console.log("strict false");
   }
   $(strictSwitch).is(':checked');
 
