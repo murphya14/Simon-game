@@ -25,11 +25,11 @@ const strictSwitch = document.querySelector("#strictSwitch");
 
 
 
- /*---------------------------------JQuery/JS will load once the DOM is ready*/
+ /*-Query/JS will load once the DOM is ready*/
 
 $(document).ready(function() {
 
- /*--------------------------------------------------------------------------------Modal button*/
+ /*---------------------------------------------------------------Modal button*/
 $(".open").on("click", function() {
   $(".popup-overlay, .popup-content").addClass("active");
 });
@@ -40,31 +40,31 @@ $(".close, .popup-overlay").on("click", function() {
 });
 
 
-  /*--------------------------------------------------------------------------------- What happens when Power is clicked */
+  /* What happens when Power is clicked */
 
-    /*----------------------------------------Flash at start of the game */
+    /*Flash at start of the game */
 function flashColor() {
   $(".pad").addClass('begin-game-pads');
 
   }
 
-      /*----------------------------------------Removal of flash */
+/*Removal of flash */
 
  function clearColor(){
        $(".pad").removeClass("begin-game-pads");
        }
 
-  /*----------------------------------------The game cannot start before power has been turned on */
+  /*-The game cannot start before power has been turned on */
 
 let allowStart =
     startButton.onclick = () => {
-
+        $("#start").removeClass('disabled');
         $("#start").addClass("begin-game-start");
         clearColor();
         initializeGame();
     }
         ;
- /*--------------------------------------------------------------------------------- What happens when start is clicked(after on has been clicked) */
+ /*What happens when start is clicked(after on has been clicked) */
 
 
 if(on ==false){
@@ -72,6 +72,7 @@ if(on ==false){
     clearColor();
     clearInterval(intervalId);
      $(".pad").addClass('disabled');
+     $("#start").addClass('disabled');
 }
 else{
  allowStart;
@@ -79,7 +80,7 @@ else{
 
 
 
-    /*----------------------------------------Power is clicked*/
+    /*Power is clicked*/
 
 $("#on").click(function() {
 
@@ -89,7 +90,7 @@ $("#on").click(function() {
 
 });
 
-/*----------------------------------------Initialize game outs everything back to default settings */
+/*-Initialize game outs everything back to default settings */
 
 function initializeGame() {
     clearInterval(playInterval);
@@ -104,13 +105,13 @@ function initializeGame() {
 }
 
 
-/*----------------------------------------Pushes a number between 1-4 randomly into the sequence array */
+/*Pushes a number between 1-4 randomly into the sequence array */
 function nextSequence() {
     var randomNumber = Math.ceil(Math.random() * 4);
     sequence.push(randomNumber);
     console.log(sequence);
 }
-/*----------------------------------------This is the computers turn to generate a sequence. It sets the computer and player to 0. There is an array for the
+/*This is the computers turn to generate a sequence. It sets the computer and player to 0. There is an array for the
 player sequence. The turn increment sets the array, playerCount and computerCount back to 0 for the next count. The player interval is a switch that checks the sequence in the array. Each element of the sequence produces a flash and associated sound.
 The value of the ComputerCount determines how many times this will be run. Once the sequence matches the computerCount, the playInterval will stop which allows the player to start clicking.
 The computerCount is then incremented by 1.*/
@@ -123,27 +124,28 @@ function gamePlay() {
     playerCount=0;
     playerSequence=[];
     playInterval = setInterval(function() {
-                    showSequence(sequence[computerCount]);
-
+                   showSequence(sequence[computerCount]
+                    );
     if (sequence.length === computerCount)
         {clearInterval(playInterval);
         $(".pad").removeClass('disabled');
         }
         computerCount++;
-    }, 800);
+    }, 1000);
 }
 
 
 
 
-/*----------------------------Changes visuals after the pad has been clicked*/
+/*Changes visuals after the pad has been clicked*/
 function playerTimeout() {
     playTimeout = setTimeout(function() {
         clearColor();
     }, 400);
 }
-/*------------------------------------------------------- Pairing color change and audio for each of the four pads*/
+/*Pairing color change and audio for each of the four pads*/
 function showSequence(element) {
+$(".pad").addClass('disabled');
 
  switch (element){
     case 1:
@@ -152,7 +154,7 @@ function showSequence(element) {
      $("#one").addClass("flash");
        setTimeout(function(){
                   $("#one").removeClass("flash");
-              },900);
+              },1000);
 
    break;
 
@@ -161,7 +163,7 @@ case 2:
    $("#two").addClass("flash");
        setTimeout(function(){
                   $("#two").removeClass("flash");
-              },900);
+              },1000);
        break;
 
 case 3:
@@ -169,7 +171,7 @@ case 3:
   $("#three").addClass("flash");
        setTimeout(function(){
                   $("#three").removeClass("flash");
-              },900);
+              },1000);
    break;
 
 case 4:
@@ -177,7 +179,7 @@ case 4:
   $("#four").addClass("flash");
        setTimeout(function(){
                   $("#four").removeClass("flash");
-              },900);
+              },1000);
     break;
 
     default:
@@ -192,6 +194,7 @@ case 4:
 $(".pad").click(function() {
     clearTimeout(playTimeout);
     clearColor();
+    $(".pad").removeClass('disabled');
     let padID = $(this).attr("id");
         if (padID == "one")
             {
@@ -228,13 +231,13 @@ $(".pad").click(function() {
         console.log(playerSequence);
      });
 
- /*------------------------------------- function to check if the array of the computer matches the array the player has inputted and increment the count*/
+ /*function to check if the array of the computer matches the array the player has inputted and increment the count*/
 
 
 
 function check() {
 playerCount++;
-            /*-------------Assigns variables to see if the player and computer sequence match*/
+            /*-Assigns variables to see if the player and computer sequence match*/
 
   if (playerSequence[playerCount - 1] == sequence[playerCount - 1]){
     good = true;
@@ -242,7 +245,7 @@ playerCount++;
     good = false;
 }
 
-   /*-------------Assigns the boolean "good" which reacts to whether the sequence of the player and computer match and incorporates the strict rule*/
+   /*Assigns the boolean "good" which reacts to whether the sequence of the player and computer match and incorporates the strict rule*/
    if (!good && !strict) {
     turn--;
  $(".pad").addClass('disabled');
@@ -252,24 +255,24 @@ playerCount++;
         turnCounter.innerHTML = turn;
         $(".pad").removeClass('disabled');
         clearColor();
-        setTimeout(function(){gamePlay();}, 500);
+        setTimeout(function(){gamePlay();}, 1000);
       }, 500);
     }
- /*-------------Assigns the rule that will apply if strict is on and the sequence does not match*/
+ /*Assigns the rule that will apply if strict is on and the sequence does not match*/
   if (strict && !good)
     {
         $(".pad").addClass('disabled');
         showGameOver();
         console.log("Seqdontmatch&STRICt");
     }
-   /*-------------Assigns the rule that will apply if strict is off and the sequence does not match*/
+   /*Assigns the rule that will apply if strict is off and the sequence does not match*/
 
 
-   /*-------------Assigns the rule that will apply if the sequence of the player and computer match. The players score is displayed in the scoreboard
+   /*Assigns the rule that will apply if the sequence of the player and computer match. The players score is displayed in the scoreboard
    before being timed out to the next round.*/
 
 if (good) {
-    if (playerSequence.length === sequence.length)  /*-------------This seems to be a problem*/
+    if (playerSequence.length === sequence.length)  /*This seems to be a problem*/
        {
         $(".pad").addClass('disabled');
         turnCounter.innerHTML = "GOOD!";
@@ -279,11 +282,11 @@ if (good) {
         turnCounter.innerHTML = turn;
         $(".pad").removeClass('disabled');
         clearColor();
-        setTimeout(function(){gamePlay();}, 500);
-      }, 500);
+        setTimeout(function(){gamePlay();}, 1000);
+      }, 1000);
     }
 }
- /*-------------Criteria for the game to be won and what occurs. This also stops the playInterval.*/
+ /*-Criteria for the game to be won and what occurs. This also stops the playInterval.*/
 
 if (playerCount == 20 && good) {
     flashTimeout();
@@ -292,16 +295,18 @@ if (playerCount == 20 && good) {
         winGame();}
 
 }
- /*-------------------------------------Running the check function through when the pads have been clicked by the player*/
+ /*-Running the check function through when the pads have been clicked by the player*/
 
 
 
  /*--------------------------------------------------------------------------------- Strict button setting */
 
-
+function PlayStrict(){
+    strictNoise.play();
+};
 
 $(strictSwitch).on("click", function() {
-    strictNoise.play();
+    PLayStrict();
     if (strictSwitch.checked == true) {
             strict = true;  }
     else {
@@ -311,27 +316,27 @@ $(strictSwitch).on("click", function() {
   $(strictSwitch).is(':checked');
 
 });
-/*---------------------------This removes the flash of the pads after 500 milliseconds */
+/*This removes the flash of the pads after 500 milliseconds */
 
 function flashTimeout() {
     flashColor();
     setTimeout(function() {
         clearColor();
-    }, 500);
+    }, 1000);
 }
 
 
 
-/*---------------------------This function is incurred when it is game over and reflects this message in the Counter box */
+/*This function is incurred when it is game over and reflects this message in the Counter box */
 
 function showGameOver() {
    turnCounter.innerHTML="GAME OVER";
    flashColor();
    offNoise.play();
-   setTimeout(function(){initializeGame();}, 1000);
+   setTimeout(function(){initializeGame();}, 2000);
 }
 
-/*---------------------------This function is incurred when it is game over and reflects this message in the Counter box if the player has won adn plays the winning music*/
+/*This function is incurred when it is game over and reflects this message in the Counter box if the player has won adn plays the winning music*/
 
 function winGame() {
     turnCounter.innerHTML("WIN!");
