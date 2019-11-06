@@ -61,6 +61,7 @@ let allowStart =
         $("#start").addClass("begin-game-start");
         clearColor();
         initializeGame();
+
     };
  /*What happens when start is clicked(after on has been clicked) */
 
@@ -70,8 +71,7 @@ if(on ==false){
     clearColor();
     clearInterval(intervalId);
      $(".pad").addClass('disabled');
-     $("#start").removeClass("begin-game-start");
-
+     $("#start").addClass('disabled');
 }
 else{
  allowStart;
@@ -87,6 +87,7 @@ $("#on").click(function() {
       flashColor();
       turnCounter.innerHTML = "Score";
       on == true;
+      $("#start").removeClass('disabled');
 
 });
 
