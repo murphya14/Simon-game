@@ -58,12 +58,10 @@ function flashColor() {
 
 let allowStart =
     startButton.onclick = () => {
-        $("#start").removeClass('disabled');
         $("#start").addClass("begin-game-start");
         clearColor();
         initializeGame();
-    }
-        ;
+    };
  /*What happens when start is clicked(after on has been clicked) */
 
 
@@ -72,7 +70,8 @@ if(on ==false){
     clearColor();
     clearInterval(intervalId);
      $(".pad").addClass('disabled');
-     $("#start").addClass('disabled');
+     $("#start").removeClass("begin-game-start");
+
 }
 else{
  allowStart;
@@ -87,6 +86,7 @@ $("#on").click(function() {
       $("#on").addClass("begin-game-start");
       flashColor();
       turnCounter.innerHTML = "Score";
+      on == true;
 
 });
 
@@ -131,7 +131,7 @@ function gamePlay() {
         $(".pad").removeClass('disabled');
         }
         computerCount++;
-    }, 1000);
+    }, 800);
 }
 
 
@@ -154,7 +154,7 @@ $(".pad").addClass('disabled');
      $("#one").addClass("flash");
        setTimeout(function(){
                   $("#one").removeClass("flash");
-              },1000);
+              },850);
 
    break;
 
@@ -163,7 +163,7 @@ case 2:
    $("#two").addClass("flash");
        setTimeout(function(){
                   $("#two").removeClass("flash");
-              },1000);
+              },850);
        break;
 
 case 3:
@@ -171,7 +171,7 @@ case 3:
   $("#three").addClass("flash");
        setTimeout(function(){
                   $("#three").removeClass("flash");
-              },1000);
+              },850);
    break;
 
 case 4:
@@ -179,7 +179,7 @@ case 4:
   $("#four").addClass("flash");
        setTimeout(function(){
                   $("#four").removeClass("flash");
-              },1000);
+              },850);
     break;
 
     default:
@@ -255,7 +255,7 @@ playerCount++;
         turnCounter.innerHTML = turn;
         $(".pad").removeClass('disabled');
         clearColor();
-        setTimeout(function(){gamePlay();}, 1000);
+        setTimeout(function(){gamePlay();}, 800);
       }, 500);
     }
  /*Assigns the rule that will apply if strict is on and the sequence does not match*/
@@ -283,7 +283,7 @@ if (good) {
         $(".pad").removeClass('disabled');
         clearColor();
         setTimeout(function(){gamePlay();}, 1000);
-      }, 1000);
+      }, 800);
     }
 }
  /*-Criteria for the game to be won and what occurs. This also stops the playInterval.*/
@@ -306,7 +306,7 @@ function PlayStrict(){
 };
 
 $(strictSwitch).on("click", function() {
-    PLayStrict();
+    PlayStrict();
     if (strictSwitch.checked == true) {
             strict = true;  }
     else {
@@ -322,7 +322,7 @@ function flashTimeout() {
     flashColor();
     setTimeout(function() {
         clearColor();
-    }, 1000);
+    }, 800);
 }
 
 
