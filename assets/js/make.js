@@ -132,7 +132,7 @@ function gamePlay() {
         $(".pad").removeClass('disabled');
         }
         computerCount++;
-    }, 800);
+    }, 700);
 }
 
 
@@ -142,7 +142,7 @@ function gamePlay() {
 function playerTimeout() {
     playTimeout = setTimeout(function() {
         clearColor();
-    }, 400);
+    }, 500);
 }
 /*Pairing color change and audio for each of the four pads*/
 function showSequence(element) {
@@ -155,7 +155,7 @@ $(".pad").addClass('disabled');
      $("#one").addClass("flash");
        setTimeout(function(){
                   $("#one").removeClass("flash");
-              },850);
+              },500);
 
    break;
 
@@ -164,7 +164,7 @@ case 2:
    $("#two").addClass("flash");
        setTimeout(function(){
                   $("#two").removeClass("flash");
-              },850);
+              },500);
        break;
 
 case 3:
@@ -172,7 +172,7 @@ case 3:
   $("#three").addClass("flash");
        setTimeout(function(){
                   $("#three").removeClass("flash");
-              },850);
+              },500);
    break;
 
 case 4:
@@ -180,7 +180,7 @@ case 4:
   $("#four").addClass("flash");
        setTimeout(function(){
                   $("#four").removeClass("flash");
-              },850);
+              },500);
     break;
 
     default:
@@ -195,7 +195,7 @@ case 4:
 $(".pad").click(function() {
     clearTimeout(playTimeout);
     clearColor();
-    $(".pad").removeClass('disabled');
+
     let padID = $(this).attr("id");
         if (padID == "one")
             {
@@ -256,7 +256,7 @@ playerCount++;
         turnCounter.innerHTML = turn;
         $(".pad").removeClass('disabled');
         clearColor();
-        setTimeout(function(){gamePlay();}, 800);
+        setTimeout(function(){gamePlay();}, 500);
       }, 500);
     }
  /*Assigns the rule that will apply if strict is on and the sequence does not match*/
@@ -265,15 +265,14 @@ playerCount++;
         $(".pad").addClass('disabled');
         showGameOver();
         console.log("Seqdontmatch&STRICt");
-    }
-   /*Assigns the rule that will apply if strict is off and the sequence does not match*/
+    };
 
 
    /*Assigns the rule that will apply if the sequence of the player and computer match. The players score is displayed in the scoreboard
    before being timed out to the next round.*/
 
 if (good) {
-    if (playerSequence.length === sequence.length)  /*This seems to be a problem*/
+    if (playerSequence.length === sequence.length)
        {
         $(".pad").addClass('disabled');
         turnCounter.innerHTML = "GOOD!";
@@ -283,8 +282,8 @@ if (good) {
         turnCounter.innerHTML = turn;
         $(".pad").removeClass('disabled');
         clearColor();
-        setTimeout(function(){gamePlay();}, 1000);
-      }, 800);
+        setTimeout(function(){gamePlay();}, 500);
+      }, 500);
     }
 }
  /*-Criteria for the game to be won and what occurs. This also stops the playInterval.*/
@@ -323,7 +322,7 @@ function flashTimeout() {
     flashColor();
     setTimeout(function() {
         clearColor();
-    }, 800);
+    }, 500);
 }
 
 
