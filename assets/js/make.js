@@ -195,7 +195,6 @@ case 4:
 $(".pad").click(function() {
     clearTimeout(playTimeout);
     clearColor();
-
     let padID = $(this).attr("id");
         if (padID == "one")
             {
@@ -205,6 +204,7 @@ $(".pad").click(function() {
                 console.log("one");
 
             }
+            $(".pad").removeClass('disabled');
 
             if (padID == "two")
                 {playerSequence.push(2);
@@ -213,6 +213,7 @@ $(".pad").click(function() {
                 console.log("two");
 
                }
+               $(".pad").removeClass('disabled');
 
              if (padID == "three")
                 {playerSequence.push(3);
@@ -221,6 +222,7 @@ $(".pad").click(function() {
                 console.log("three");
 
                 }
+                $(".pad").removeClass('disabled');
 
               if (padID == "four")
                 {playerSequence.push(4);
@@ -228,6 +230,7 @@ $(".pad").click(function() {
                 showSequence(4);
                 console.log("four");
              }
+             $(".pad").removeClass('disabled');
         check();
         console.log(playerSequence);
      });
@@ -322,7 +325,7 @@ function flashTimeout() {
     flashColor();
     setTimeout(function() {
         clearColor();
-    }, 500);
+    }, 300);
 }
 
 
@@ -333,7 +336,7 @@ function showGameOver() {
    turnCounter.innerHTML="GAME OVER";
    flashColor();
    offNoise.play();
-   setTimeout(function(){initializeGame();}, 2000);
+   setTimeout(function(){initializeGame();}, 1000);
 }
 
 /*This function is incurred when it is game over and reflects this message in the Counter box if the player has won adn plays the winning music*/
@@ -344,7 +347,7 @@ function winGame() {
     flashColor();
     setTimeout(function() {
     }, 2000);
-     setTimeout(function(){initializeGame();}, 2000);
+     setTimeout(function(){initializeGame();}, 1000);
 }
 
 });

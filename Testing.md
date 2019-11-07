@@ -99,6 +99,7 @@ Confirmed
 
 1. Received feedback from students, friends and family who viewed the game on different devices. _ There was a problem with the sequence gap time for both playerSequence and computerSequence. This was rectified by using timing intervals._
 2. Used Chrome Developer tools to get appropriate placing and design.
+3. The Game cannot be played on mobile and this was rectifed using a pop-up that asked the User to play on a bigger screen.
 
 
 
