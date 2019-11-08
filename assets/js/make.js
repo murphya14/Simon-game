@@ -304,7 +304,7 @@ $(document).ready(function() {
     /*--------------------------------------------------------------------------------- Strict button setting */
 
     function PlayStrict() {
-        strictNoise.play();
+       strictNoise.playbackRate = 2;
     }
 
     $(strictSwitch).on("click", function() {
