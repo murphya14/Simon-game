@@ -2,8 +2,8 @@
 
 
 body {
-background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
-/*background sourced from https://webgradients.com/*/
+    background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
+    /*background sourced from https://webgradients.com/*/
     height: 100%;
     font-family: 'Orbitron', sans-serif;
     font-size: 20px;
@@ -16,7 +16,9 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
 
 }
 
-.alert {display: none}
+.alert {
+    display: none
+}
 
 .wrapper {
     position: relative;
@@ -28,7 +30,9 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
 
 }
 
-.uppercase {text-transform: uppercase}
+.uppercase {
+    text-transform: uppercase
+}
 
 
 .center {
@@ -38,7 +42,8 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
 
 /*Nav/header styling*/
 
-.navbar {background-color: black;
+.navbar {
+    background-color: black;
     color: white;
     font-weight: 700;
 
@@ -54,7 +59,7 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
 
 .sub-heading {
     position: relative;
-    font-size:20px;
+    font-size: 20px;
     text-align: center;
     color: #ff0dbf;
 }
@@ -81,7 +86,7 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
     position: relative;
     top: 0px;
     width: 560vw;
-    height: 70vw;
+    height: 70vh;
     max-width: 600px;
     max-height: 600px;
     z-index: 0;
@@ -161,47 +166,54 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
     width: 100%;
     font-size: 14px;
 }
+
 /*-----------------------------------Pop up modaL activation*/
 
 .popup-overlay {
-  /*Hides pop-up when there is no "active" class*/
-  visibility: hidden;
-  position: absolute;
-  background: #ffffff;
-  border: 3px solid #666666;
-  width: 60%;
-  height: 50%;
-  left: 25%;
+    /*Hides pop-up when there is no "active" class*/
+    visibility: hidden;
+    position: absolute;
+    background: #ffffff;
+    border: 3px solid #666666;
+    width: 60%;
+    height: 50%;
+    left: 25%;
 }
 
 .popup-overlay.active {
-  /*displays pop-up when "active" class is present*/
-  visibility: visible;
-  text-align: center;
-  z-index: 10;
+    /*displays pop-up when "active" class is present*/
+    visibility: visible;
+    text-align: center;
+    z-index: 10;
 }
 
 .popup-content {
-  /*Hides pop-up content when there is no "active" class */
-  visibility: hidden;
+    /*Hides pop-up content when there is no "active" class */
+    visibility: hidden;
 }
 
 .popup-content.active {
-  /*Shows pop-up content when "active" class is present */
-  visibility: visible;
-   z-index: 10;
-   width:100%;
-   padding:5px;
+    /*Shows pop-up content when "active" class is present */
+    visibility: visible;
+    z-index: 10;
+    width: 100%;
+    padding: 5px;
 }
 
 
-.how-to-p, h2 {color: white;}
+.how-to-p,
+h2 {
+    color: white;
+}
 
-.close {color:black;
+.close {
+    color: black;
     font-weight: 700;
 }
 
-.hide {display:none;}
+.hide {
+    display: none;
+}
 
 .start-button {
     width: 70px;
@@ -213,7 +225,7 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
     margin-top: 5%;
     text-transform: uppercase;
     border: 5px;
-    border-color:white;
+    border-color: white;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     color: white;
     cursor: pointer;
@@ -225,92 +237,101 @@ background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
     background-color: #49fb35;
 }
 
-.begin-game-start {background-color: #49fb35;
-margin-bottom: -10%;}
+.begin-game-start {
+    background-color: #49fb35;
+    margin-bottom: -10%;
+}
 
-.begin-game-pads {opacity:1;}
+.begin-game-pads {
+    opacity: 1;
+}
 
 #counter {
-  width: 35%;
-  height: 15%;
-  text-align: center;
-  margin-left: 50%;
-  margin-top: -40%;
-  color:#F50505;
-  border: solid white;
+    width: 35%;
+    height: 15%;
+    text-align: center;
+    margin-left: 50%;
+    margin-top: -40%;
+    color: #F50505;
+    border: solid white;
 }
+
 /*-----------------------------------slider- using help from https://www.w3schools.com/howto/howto_css_switch.asp*/
 .switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 24px;
-  margin-right: 70%;
-  margin-top: 20%;
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 24px;
+    margin-right: 70%;
+    margin-top: 20%;
 }
 
 /* Hide default HTML checkbox */
 .switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
 /* The slider */
 .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
 
 }
 
 .slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 0px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 0px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
 
 }
 
-input:checked + .slider {
-  background-color: #F7135F;
+input:checked+.slider {
+    background-color: #F7135F;
 }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
 }
 
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
 }
 
 /* Rounded sliders */
 .slider.round {
-  border-radius: 34px;
+    border-radius: 34px;
 }
 
 .slider.round:before {
-  border-radius: 50%;
+    border-radius: 50%;
 }
 
-.strict{color:white}
+.strict {
+    color: white
+}
 
 /*Class for JS*/
 
-.disabled { pointer-events: none; }
+.disabled {
+    pointer-events: none;
+}
 
 /*Footers*/
 
@@ -321,7 +342,7 @@ input:checked + .slider:before {
     width: 100%;
     text-align: center;
     font-size: 15px;
-    margin:0;
+    margin: 0;
     color: white;
     background-color: black;
     height: 30px;
@@ -332,5 +353,7 @@ input:checked + .slider:before {
 
 /*Warning for playing on mobile*/
 @media only screen and (max-width: 600px) {
-    .alert {display: block}
+    .alert {
+        display: block
+    }
 }
